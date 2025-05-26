@@ -1,11 +1,13 @@
 import "./App.css";
-import Daftar from "./pages/daftar";
-import Homepage from "./pages/homepage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import Homepage from "./pages/Homepage";
+
 import Notfound from "./pages/Notfound";
-import Profil from "./pages/profil";
+import Profil from "./pages/Profil";
 import Lamar from "./pages/Lamar";
 import Jadwal from "./pages/Jadwal";
+import Daftar from "./pages/Daftar";
 
 function App() {
   return (
