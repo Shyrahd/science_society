@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
-import Footerr from "./footerr";
+import Footerr from "./Footerr";
 
 function Homepage() {
   return (
