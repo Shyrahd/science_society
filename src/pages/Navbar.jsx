@@ -34,7 +34,7 @@ function Navbar() {
             >
               <li>
                 <Link to="/" className="font-bold font-montserrat">
-                  Home
+                  HomePage
                 </Link>
               </li>
               <li>
