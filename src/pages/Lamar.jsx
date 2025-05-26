@@ -5,6 +5,7 @@ function Lamar() {
   return (
     <>
       <Navbar />
+      <FormLamar/>
     </>
   );
 }

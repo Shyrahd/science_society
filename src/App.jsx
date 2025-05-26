@@ -6,7 +6,7 @@ import Homepage from "./pages/Homepage";
 import Notfound from "./pages/Notfound";
 import Profil from "./pages/Profil";
 import Lamar from "./pages/Lamar";
-
+import Jadwal from "./pages/Jadwal";
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/Profil" element={<Profil />} />
           <Route path="/Lamar" element={<Lamar />} />
+          <Route path="/Jadwal" element={<Jadwal />} />
           <Route path="*" element={<Notfound />} />
         </Routes>
       </Router>
