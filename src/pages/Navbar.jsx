@@ -30,30 +30,41 @@ function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-[#1c2953] rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Item 1</a>
+                <Link to="/" className="font-bold font-montserrat">
+                  Home
+                </Link>
               </li>
               <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
+                    <Link
+                      to="/Profil"
+                      className="font-bold font-montserrat"
+                    >
+                      Profil
+                    </Link>
                   </li>
                   <li>
-                    <a>Submenu 2</a>
+                    <Link
+                      to="/Jadwal"
+                      className="font-bold font-montserrat"
+                    >
+                      Jadwal
+                    </Link>
                   </li>
-                </ul>
-              </li>
               <li>
-                <a>Profil</a>
+                <Link to="/Lamar" className="font-bold font-montserrat">
+                  Lamar
+                </Link>
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">
-            <img src="/science_society.png" alt="" />
-          </a>
+          <Link to="/">
+            <a className=" text-xl">
+              <img src="/science_society.png" alt="" />
+            </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
