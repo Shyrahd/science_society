@@ -77,7 +77,7 @@ function Navbar() {
                   </li>
                   <li>
                     <Link
-                      to="/Jadwal"
+                      to="/"
                       className="font-bold font-montserrat text-color"
                       style={{ color: "rgb(247, 152, 52)" }}
                     >
