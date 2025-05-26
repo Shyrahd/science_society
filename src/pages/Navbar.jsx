@@ -52,7 +52,7 @@ function Navbar() {
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">
-            <img src="src\assets\science_society.png" alt="" />
+            <img src="/science_society.png" alt="" />
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
