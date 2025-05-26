@@ -76,7 +76,7 @@ function Navbar() {
                     </Link>
                   </li>
                   <li>
-                  <Link
+                    <Link
                       to="/Jadwal"
                       className="font-bold font-montserrat text-color"
                       style={{ color: "rgb(247, 152, 52)" }}
@@ -95,7 +95,11 @@ function Navbar() {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Daftar</a>
+          <a className="btn">
+            <Link to="/Lamar" className="font-bold font-montserrat">
+              Lamar
+            </Link>
+          </a>
         </div>
       </div>
     </>
