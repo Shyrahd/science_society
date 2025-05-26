@@ -96,7 +96,7 @@ function Navbar() {
         </div>
         <div className="navbar-end">
           <a className="btn">
-            <Link to="/Lamar" className="font-bold font-montserrat">
+            <Link to="/Daftar" className="font-bold font-montserrat">
               Lamar
             </Link>
           </a>
