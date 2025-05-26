@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Navbar from "./Navbar";
 
 function Notfound() {
   return (
-    <div>Notfound</div>
-  )
+    <>
+      <Navbar />
+      NOT FOUND
+    </>
+  );
 }
 
-export default Notfound
+export default Notfound;
