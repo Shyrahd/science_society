@@ -18,7 +18,7 @@ function Profilhome() {
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row">
           <img
-            src="src\assets\pp_aji.jpg"
+            src="/pp_aji.jpg"
             className="max-w-sm rounded-lg shadow-2xl w-50"
           />
           <ProfileMenu />
