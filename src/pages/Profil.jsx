@@ -12,6 +12,102 @@ function profil() {
   );
 }
 
+function InstructorIdCard() {
+  return (
+    <div className="w-64 mt-4 bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-lg shadow-lg">
+      <div className="p-4">
+        <div className="text-center space-y-3">
+          {/* Header */}
+          <div className="flex items-center justify-center space-x-2 mb-3">
+            <svg
+              className="h-5 w-5 text-blue-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M12 14l9-5-9-5-9 5 9 5z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+              />
+            </svg>
+            <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
+              ID Pengajar
+            </span>
+          </div>
+
+          {/* Name */}
+          <div className="space-y-1">
+            <div className="flex items-center justify-center space-x-2">
+              <svg
+                className="h-4 w-4 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                />
+              </svg>
+              <span className="text-xs text-gray-600 font-medium">Nama</span>
+            </div>
+            <h3 className="font-bold text-gray-900 text-sm leading-tight">
+              Tri Aji Alhuda
+            </h3>
+          </div>
+
+          {/* Title */}
+          <div className="space-y-1">
+            <div className="bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full inline-block">
+              Pengajar PU (Penalaran Umum)
+            </div>
+          </div>
+
+          {/* Course */}
+          <div className="space-y-1">
+            <div className="flex items-center justify-center space-x-2">
+              <svg
+                className="h-4 w-4 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                />
+              </svg>
+              <span className="text-xs text-gray-600 font-medium">
+                Mengajar
+              </span>
+            </div>
+            <p className="text-sm font-semibold text-blue-700">
+              Penalaran Umum
+            </p>
+          </div>
+
+          {/* Department */}
+          <div className="pt-2 border-t border-blue-200">
+            <p className="text-xs text-gray-600">Departemen Ilmu Komputer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ProfileMenu({ activeSection, onSectionChange }) {
   return (
     <>
@@ -125,8 +221,6 @@ function ProfileMenu({ activeSection, onSectionChange }) {
   );
 }
 
-export default profil;
-
 function Profilhome() {
   const [activeSection, setActiveSection] = useState("home");
 
@@ -142,15 +236,12 @@ function Profilhome() {
         return <Akun />;
       default:
         return (
-          <div>
-            <h1 className="text-5xl font-bold">Halo Tri Aji Alhuda!</h1>
-            <p className="py-6">
-              Selamat datang di profil Anda. Sebagai pengajar Penalaran Umum
-              dengan latar belakang Sarjana Ilmu Komputer, Anda dapat mengelola
-              informasi profil, melihat statistik mengajar, dan mengatur
-              pengaturan akun di sini.
+          <div className="w-full bg-white rounded-lg shadow-lg p-6 mb-6">
+            <p>
+              Selamat datang di profil Anda! Di halaman ini, Anda dapat melihat
+              biodata lengkap, informasi detail tentang aktivitas mengajar,
+              serta melakukan pengaturan akun sesuai kebutuhan Anda.
             </p>
-            <button className="btn btn-primary">Mulai</button>
           </div>
         );
     }
@@ -158,17 +249,45 @@ function Profilhome() {
 
   return (
     <>
+      {/* Top Bar */}
+      <div className="bg-base-100 py-4 px-6 shadow-sm">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-3xl font-bold text-gray-800">
+            Halo Tri Aji Alhuda!
+          </h1>
+        </div>
+      </div>
+
       <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col lg:flex-row">
-          <img
-            src="/pp_aji.jpg"
-            className="max-w-sm rounded-lg shadow-2xl w-50"
-          />
-          <ProfileMenu
-            activeSection={activeSection}
-            onSectionChange={setActiveSection}
-          />
-          <div className="flex-1">{renderContent()}</div>
+        <div className="hero-content flex-col lg:flex-row w-full max-w-7xl">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-6 w-full">
+            {/* Fixed Left Side - Profile Photo, ID Card and Menu */}
+            <div className="flex flex-col items-center lg:items-start space-y-4 lg:w-80 flex-shrink-0">
+              <div className="flex flex-col">
+                <div className="flex">
+                  <img
+                    src="/pp_aji.jpg"
+                    className="w-64 h-80 object-cover rounded-lg shadow-2xl"
+                    alt="Profile Picture"
+                  />
+                  <div className="w-full flex justify-center lg:justify-start mt-4">
+                    <ProfileMenu
+                      activeSection={activeSection}
+                      onSectionChange={setActiveSection}
+                    />
+                  </div>
+                </div>
+
+                {/* ID Card below the picture */}
+                <InstructorIdCard />
+              </div>
+            </div>
+
+            {/* Dynamic Content Area */}
+            <div className="flex-1 min-h-[600px] w-full lg:w-auto mt-6 lg:mt-0">
+              {renderContent()}
+            </div>
+          </div>
         </div>
       </div>
     </>
@@ -476,14 +595,11 @@ function ProfileCard({ userInfo, isEditing, onEdit, onSave }) {
       {/* Profile Picture */}
       <div className="text-center mb-6">
         <div className="relative inline-block">
-          <div className="w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <span className="text-white text-2xl font-bold">
-              {userInfo.name
-                .split(" ")
-                .map((n) => n[0])
-                .join("")}
-            </span>
-          </div>
+          <img
+            src="/ji.jpeg"
+            alt="Profile Picture"
+            className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-2 border-gray-200"
+          />
           <button className="absolute bottom-0 right-0 bg-gray-100 hover:bg-gray-200 text-gray-600 p-2 rounded-full transition-colors border border-gray-300">
             <svg
               className="w-4 h-4"
@@ -722,3 +838,5 @@ function ActivitySection() {
     </div>
   );
 }
+
+export default profil;
