@@ -39,12 +39,7 @@ function NewNav() {
               </li>
               <li>
                 <Link to="/User" className="font-bold font-montserrat">
-                  Profil
-                </Link>
-              </li>
-              <li>
-                <Link to="/Jadwal" className="font-bold font-montserrat">
-                  Jadwal
+                  Profile
                 </Link>
               </li>
               <li>
@@ -68,29 +63,9 @@ function NewNav() {
               </Link>
             </li>
             <li>
-              <details>
-                <summary className="font-bold font-montserrat">Profile</summary>
-                <ul className="p-2">
-                  <li>
-                    <Link
-                      to="/User"
-                      className="font-bold font-montserrat text-color"
-                      style={{ color: "rgb(247, 152, 52)" }}
-                    >
-                      Profil
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/Jadwal"
-                      className="font-bold font-montserrat text-color"
-                      style={{ color: "rgb(247, 152, 52)" }}
-                    >
-                      Jadwal
-                    </Link>
-                  </li>
-                </ul>
-              </details>
+              <Link to="/User" className="font-bold font-montserrat">
+                Profile
+              </Link>
             </li>
             <li>
               <Link to="/Lamar" className="font-bold font-montserrat">
