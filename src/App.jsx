@@ -10,6 +10,7 @@ import Dashboard from "./management/Dashboard";
 import Face from "./Face";
 import AdmProfile from "./management/AdmProfile";
 import LandPage from "./newUser/LandPage";
+import UserProfile from "./newUser/userProfile";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/Lamar" element={<Lamar />} />
           <Route path="/Jadwal" element={<Jadwal />} />
           <Route path="/LandPage" element={<LandPage />} />
+          <Route path="/User" element={<UserProfile />} />
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/AdmProfile" element={<AdmProfile />} />
           <Route path="*" element={<Notfound />} />

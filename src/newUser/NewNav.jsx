@@ -38,7 +38,7 @@ function NewNav() {
                 </Link>
               </li>
               <li>
-                <Link to="/Profil" className="font-bold font-montserrat">
+                <Link to="/User" className="font-bold font-montserrat">
                   Profil
                 </Link>
               </li>
@@ -73,7 +73,7 @@ function NewNav() {
                 <ul className="p-2">
                   <li>
                     <Link
-                      to="/Profil"
+                      to="/User"
                       className="font-bold font-montserrat text-color"
                       style={{ color: "rgb(247, 152, 52)" }}
                     >
