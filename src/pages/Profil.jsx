@@ -69,7 +69,7 @@ function InstructorIdCard() {
           {/* Title */}
           <div className="space-y-1">
             <div className="bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full inline-block">
-              Pengajar PU (Penalaran Umum)
+              Mentor Penalaran Umum
             </div>
           </div>
 
@@ -90,17 +90,17 @@ function InstructorIdCard() {
                 />
               </svg>
               <span className="text-xs text-gray-600 font-medium">
-                Mengajar
+                Spesialisasi
               </span>
             </div>
             <p className="text-sm font-semibold text-blue-700">
-              Penalaran Umum
+              UTBK & Sekolah Kedinasan
             </p>
           </div>
 
           {/* Department */}
           <div className="pt-2 border-t border-blue-200">
-            <p className="text-xs text-gray-600">Departemen Ilmu Komputer</p>
+            <p className="text-xs text-gray-600">Bimbel Excellence</p>
           </div>
         </div>
       </div>
@@ -303,16 +303,16 @@ function Biodata() {
             Tri Aji Alhuda
           </h2>
           <p className="text-sm text-gray-500">
-            Pengajar PU (Penalaran Umum) - Ilmu Komputer
+            Mentor Penalaran Umum - Bimbel Excellence
           </p>
         </div>
         <div className="px-6 pb-6 text-sm text-gray-700">
           <p>
-            <span className="font-semibold">NIDN:</span> 0123456789
+            <span className="font-semibold">ID Mentor:</span> PU2024001
           </p>
           <p>
             <span className="font-semibold">Email:</span>{" "}
-            triaji.alhuda@universitas.ac.id
+            triaji.alhuda@bimbelexcellence.com
           </p>
           <p>
             <span className="font-semibold">No. Telepon:</span> +62
@@ -324,23 +324,23 @@ function Biodata() {
           </p>
           <p>
             <span className="font-semibold">Bidang Keahlian:</span> Penalaran
-            Umum, Logika Matematika, Pemrograman
+            Umum, Logika Matematika, Strategi UTBK
           </p>
           <p>
             <span className="font-semibold">Riwayat Pendidikan:</span>
           </p>
           <ul className="list-disc list-inside ml-4">
             <li>S1 Ilmu Komputer - Universitas Indonesia</li>
-            <li>Sertifikasi Pengajar Penalaran Umum</li>
-            <li>Pelatihan Metode Pembelajaran Modern</li>
+            <li>Sertifikasi Mentor UTBK & Sekolah Kedinasan</li>
+            <li>Pelatihan Metode Pembelajaran Kelas Kecil</li>
           </ul>
           <p className="mt-2">
             <span className="font-semibold">Pengalaman Mengajar:</span>
           </p>
           <ul className="list-disc list-inside ml-4">
-            <li>Penalaran Umum - 5 tahun</li>
-            <li>Logika dan Algoritma - 3 tahun</li>
-            <li>Dasar-dasar Pemrograman - 2 tahun</li>
+            <li>Penalaran Umum UTBK - 5 tahun</li>
+            <li>Persiapan Sekolah Kedinasan - 3 tahun</li>
+            <li>Bimbingan Personal & Konsultasi - 2 tahun</li>
           </ul>
         </div>
       </div>
@@ -352,9 +352,7 @@ function MentorDetail() {
   return (
     <div className="flex justify-center items-center min-h-full p-4">
       <div className="bg-white rounded-xl shadow-lg max-w-2xl w-full p-6">
-        <h2 className="text-3xl font-bold mb-6 text-gray-800">
-          Detail Pengajar
-        </h2>
+        <h2 className="text-3xl font-bold mb-6 text-gray-800">Detail Mentor</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-4">
@@ -363,7 +361,8 @@ function MentorDetail() {
                 Pengalaman Mengajar
               </h3>
               <p className="text-gray-600">
-                5+ tahun mengajar Penalaran Umum dan mata kuliah terkait
+                5+ tahun mengajar Penalaran Umum dengan fokus kelas kecil dan
+                personal
               </p>
             </div>
 
@@ -372,10 +371,10 @@ function MentorDetail() {
                 Spesialisasi
               </h3>
               <ul className="list-disc list-inside text-gray-600 space-y-1">
-                <li>Penalaran Umum (PU)</li>
-                <li>Logika Matematika</li>
-                <li>Pemrograman Dasar</li>
-                <li>Algoritma dan Struktur Data</li>
+                <li>Penalaran Umum UTBK & SNBT</li>
+                <li>Persiapan Sekolah Kedinasan</li>
+                <li>Logika Matematika & Figural</li>
+                <li>Strategi Pengerjaan Soal</li>
               </ul>
             </div>
 
@@ -384,7 +383,8 @@ function MentorDetail() {
                 Metode Mengajar
               </h3>
               <p className="text-gray-600">
-                Pendekatan interaktif dengan studi kasus dan latihan praktis
+                Pendekatan personal dengan kelas kecil (5-12 siswa) untuk hasil
+                optimal
               </p>
             </div>
           </div>
@@ -392,9 +392,10 @@ function MentorDetail() {
           <div className="space-y-4">
             <div>
               <h3 className="text-lg font-semibold text-gray-700">
-                Mahasiswa Dibimbing
+                Siswa Dibimbing
               </h3>
-              <p className="text-2xl font-bold text-primary">200+</p>
+              <p className="text-2xl font-bold text-primary">86</p>
+              <p className="text-sm text-gray-500">siswa aktif saat ini</p>
             </div>
 
             <div>
@@ -402,13 +403,15 @@ function MentorDetail() {
                 Tingkat Kelulusan
               </h3>
               <p className="text-2xl font-bold text-success">92%</p>
+              <p className="text-sm text-gray-500">siswa lolos PTN/Kedinasan</p>
             </div>
 
             <div>
               <h3 className="text-lg font-semibold text-gray-700">
                 Jam Mengajar
               </h3>
-              <p className="text-gray-600">Senin - Jumat: 08:00 - 16:00</p>
+              <p className="text-gray-600">20 jam/minggu</p>
+              <p className="text-sm text-gray-500">10 sesi per minggu</p>
             </div>
           </div>
         </div>
@@ -421,19 +424,19 @@ function MentorDetail() {
             <div className="flex items-center space-x-2">
               <span className="w-2 h-2 bg-primary rounded-full"></span>
               <span className="text-gray-600">
-                Pengajar Terbaik Fakultas 2023
+                Mentor Terbaik Bimbel Excellence 2024
               </span>
             </div>
             <div className="flex items-center space-x-2">
               <span className="w-2 h-2 bg-primary rounded-full"></span>
               <span className="text-gray-600">
-                Mengembangkan modul pembelajaran PU terbaru
+                Mengembangkan metode pembelajaran kelas kecil
               </span>
             </div>
             <div className="flex items-center space-x-2">
               <span className="w-2 h-2 bg-primary rounded-full"></span>
               <span className="text-gray-600">
-                Membimbing 15 mahasiswa berprestasi tahun ini
+                Membimbing 25 siswa lolos PTN favorit tahun ini
               </span>
             </div>
           </div>
@@ -453,10 +456,10 @@ function Performa() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="card bg-base-100 shadow-lg">
           <div className="card-body">
-            <h2 className="card-title text-primary">Modul Pembelajaran</h2>
-            <div className="text-3xl font-bold text-gray-700">12</div>
+            <h2 className="card-title text-primary">Sesi Minggu Ini</h2>
+            <div className="text-3xl font-bold text-gray-700">10</div>
             <p className="text-gray-600">
-              Modul PU yang telah dikembangkan dan digunakan
+              Sesi pembelajaran yang telah dilaksanakan
             </p>
             <div className="card-actions justify-end">
               <button className="btn btn-primary btn-sm">Lihat Detail</button>
@@ -469,7 +472,7 @@ function Performa() {
             <h2 className="card-title text-success">Tingkat Kelulusan</h2>
             <div className="text-3xl font-bold text-gray-700">92%</div>
             <p className="text-gray-600">
-              Persentase mahasiswa yang berhasil lulus mata kuliah
+              Persentase siswa yang berhasil lolos ujian
             </p>
             <div className="card-actions justify-end">
               <button className="btn btn-success btn-sm">Lihat Detail</button>
@@ -479,11 +482,9 @@ function Performa() {
 
         <div className="card bg-base-100 shadow-lg">
           <div className="card-body">
-            <h2 className="card-title text-warning">Kelas Aktif</h2>
-            <div className="text-3xl font-bold text-gray-700">6</div>
-            <p className="text-gray-600">
-              Kelas yang sedang diampu semester ini
-            </p>
+            <h2 className="card-title text-warning">Siswa Aktif</h2>
+            <div className="text-3xl font-bold text-gray-700">86</div>
+            <p className="text-gray-600">Total siswa yang sedang dibimbing</p>
             <div className="card-actions justify-end">
               <button className="btn btn-warning btn-sm">Lihat Detail</button>
             </div>
@@ -493,8 +494,8 @@ function Performa() {
         <div className="card bg-base-100 shadow-lg">
           <div className="card-body">
             <h2 className="card-title text-info">Jam Mengajar</h2>
-            <div className="text-3xl font-bold text-gray-700">480</div>
-            <p className="text-gray-600">Total jam mengajar semester ini</p>
+            <div className="text-3xl font-bold text-gray-700">20</div>
+            <p className="text-gray-600">Jam mengajar per minggu</p>
             <div className="card-actions justify-end">
               <button className="btn btn-info btn-sm">Lihat Detail</button>
             </div>
@@ -503,10 +504,10 @@ function Performa() {
 
         <div className="card bg-base-100 shadow-lg">
           <div className="card-body">
-            <h2 className="card-title text-secondary">Penghargaan</h2>
+            <h2 className="card-title text-secondary">Program Aktif</h2>
             <div className="text-3xl font-bold text-gray-700">5</div>
             <p className="text-gray-600">
-              Penghargaan dalam bidang pengajaran dan pendidikan
+              Program pembelajaran yang sedang berjalan
             </p>
             <div className="card-actions justify-end">
               <button className="btn btn-secondary btn-sm">Lihat Detail</button>
@@ -516,11 +517,9 @@ function Performa() {
 
         <div className="card bg-base-100 shadow-lg">
           <div className="card-body">
-            <h2 className="card-title text-accent">Evaluasi Mahasiswa</h2>
-            <div className="text-3xl font-bold text-gray-700">4.7/5</div>
-            <p className="text-gray-600">
-              Rata-rata penilaian dari evaluasi mahasiswa
-            </p>
+            <h2 className="card-title text-accent">Evaluasi Siswa</h2>
+            <div className="text-3xl font-bold text-gray-700">4.8/5</div>
+            <p className="text-gray-600">Rata-rata penilaian dari siswa</p>
             <div className="card-actions justify-end">
               <button className="btn btn-accent btn-sm">Lihat Detail</button>
             </div>
@@ -535,12 +534,12 @@ function Akun() {
   const [isEditing, setIsEditing] = useState(false);
   const [userInfo, setUserInfo] = useState({
     name: "Tri Aji Alhuda",
-    email: "triaji.alhuda@universitas.ac.id",
+    email: "triaji.alhuda@bimbelexcellence.com",
     phone: "+62 812-3456-7890",
-    department: "Ilmu Komputer",
+    department: "Bimbel Excellence",
     employeeId: "PU2024001",
     joinDate: "Januari 2019",
-    position: "Pengajar PU (Penalaran Umum)",
+    position: "Mentor Penalaran Umum",
   });
 
   const handleEdit = () => {
@@ -625,7 +624,7 @@ function ProfileCard({ userInfo, isEditing, onEdit, onSave }) {
         <h2 className="text-xl font-semibold text-gray-900">{userInfo.name}</h2>
         <p className="text-gray-600">{userInfo.position}</p>
         <span className="inline-block bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm mt-2 border border-green-200">
-          Pengajar Aktif
+          Mentor Aktif
         </span>
       </div>
 
@@ -729,7 +728,7 @@ function AccountDetails({ userInfo, setUserInfo, isEditing }) {
 
         <div>
           <label className="block text-gray-700 text-sm font-medium mb-2">
-            Departemen
+            Institusi
           </label>
           {isEditing ? (
             <select
@@ -737,11 +736,10 @@ function AccountDetails({ userInfo, setUserInfo, isEditing }) {
               onChange={(e) => handleInputChange("department", e.target.value)}
               className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
             >
-              <option value="Ilmu Komputer">Ilmu Komputer</option>
-              <option value="Matematika">Matematika</option>
-              <option value="Fisika">Fisika</option>
-              <option value="Kimia">Kimia</option>
-              <option value="Biologi">Biologi</option>
+              <option value="Bimbel Excellence">Bimbel Excellence</option>
+              <option value="Bimbel Neutron">Bimbel Neutron</option>
+              <option value="Bimbel Ganesha">Bimbel Ganesha</option>
+              <option value="Bimbel Primagama">Bimbel Primagama</option>
             </select>
           ) : (
             <p className="text-gray-900 bg-gray-50 px-3 py-2 rounded-lg border border-gray-200">
@@ -752,7 +750,7 @@ function AccountDetails({ userInfo, setUserInfo, isEditing }) {
 
         <div>
           <label className="block text-gray-700 text-sm font-medium mb-2">
-            ID Pegawai
+            ID Mentor
           </label>
           <p className="text-gray-600 bg-gray-50 px-3 py-2 rounded-lg border border-gray-200">
             {userInfo.employeeId}
@@ -775,24 +773,24 @@ function AccountDetails({ userInfo, setUserInfo, isEditing }) {
 function ActivitySection() {
   const activities = [
     {
-      action: "Mengajar kelas PU Pagi",
-      date: "2 hari yang lalu",
+      action: "Mengajar kelas UTBK Intensif",
+      date: "Hari ini",
       type: "teaching",
     },
     {
-      action: "Memperbarui modul pembelajaran",
-      date: "1 minggu yang lalu",
+      action: "Konsultasi personal dengan 5 siswa",
+      date: "Kemarin",
+      type: "consultation",
+    },
+    {
+      action: "Memperbarui materi Penalaran Figural",
+      date: "2 hari yang lalu",
       type: "content",
     },
     {
-      action: "Evaluasi ujian tengah semester",
-      date: "2 minggu yang lalu",
+      action: "Try Out UTBK dengan 11 siswa",
+      date: "3 hari yang lalu",
       type: "evaluation",
-    },
-    {
-      action: "Workshop metode pembelajaran",
-      date: "3 minggu yang lalu",
-      type: "training",
     },
   ];
 
@@ -800,12 +798,12 @@ function ActivitySection() {
     switch (type) {
       case "teaching":
         return "👨‍🏫";
+      case "consultation":
+        return "💬";
       case "content":
         return "📚";
       case "evaluation":
         return "📝";
-      case "training":
-        return "🎓";
       default:
         return "📋";
     }

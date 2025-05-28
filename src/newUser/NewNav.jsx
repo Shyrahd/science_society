@@ -33,7 +33,7 @@ function NewNav() {
               className="menu menu-sm dropdown-content bg-[#1c2953] rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link to="/Home" className="font-bold font-montserrat">
+                <Link to="/LandPage" className="font-bold font-montserrat">
                   HomePage
                 </Link>
               </li>
@@ -49,7 +49,7 @@ function NewNav() {
               </li>
             </ul>
           </div>
-          <Link to="/Home">
+          <Link to="/LandPage">
             <a className=" text-xl">
               <img src="/science_society.png" alt="" />
             </a>
@@ -58,7 +58,7 @@ function NewNav() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <Link to="/Home" className="font-bold font-montserrat">
+              <Link to="/LandPage" className="font-bold font-montserrat">
                 Home
               </Link>
             </li>
