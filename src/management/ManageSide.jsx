@@ -116,14 +116,19 @@ export default ManageSide;
 
 function SideBar() {
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
-  const [isEcommerceOpen, setIsEcommerceOpen] = useState(false);
+  const [isRecruitmentOpen, setIsRecruitmentOpen] = useState(false);
+  const [isPerformanceOpen, setIsPerformanceOpen] = useState(false);
 
   const toggleDashboard = () => {
     setIsDashboardOpen(!isDashboardOpen);
   };
 
-  const toggleEcommerce = () => {
-    setIsEcommerceOpen(!isEcommerceOpen);
+  const toggleRecruitment = () => {
+    setIsRecruitmentOpen(!isRecruitmentOpen);
+  };
+
+  const togglePerformance = () => {
+    setIsPerformanceOpen(!isPerformanceOpen);
   };
 
   return (
@@ -136,7 +141,7 @@ function SideBar() {
             className="w-6 h-6"
           />
           <h5 className="font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-white">
-            Science Society Manage
+            Science Society HR
           </h5>
         </div>
       </div>
@@ -159,11 +164,7 @@ function SideBar() {
                   aria-hidden="true"
                   className="w-5 h-5"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M2.25 2.25a.75.75 0 000 1.5H3v10.5a3 3 0 003 3h1.21l-1.172 3.513a.75.75 0 001.424.474l.329-.987h8.418l.33.987a.75.75 0 001.422-.474l-1.17-3.513H18a3 3 0 003-3V3.75h.75a.75.75 0 000-1.5H2.25zm6.04 16.5l.5-1.5h6.42l.5 1.5H8.29zm7.46-12a.75.75 0 00-1.5 0v6a.75.75 0 001.5 0v-6zm-3 2.25a.75.75 0 00-1.5 0v3.75a.75.75 0 001.5 0V9zm-3 2.25a.75.75 0 00-1.5 0v1.5a.75.75 0 001.5 0v-1.5z"
-                    clipRule="evenodd"
-                  ></path>
+                  <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v9.375c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v4.875c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 18v-4.875z" />
                 </svg>
               </div>
               <p className="block mr-auto font-sans text-base antialiased font-normal leading-relaxed text-white">
@@ -215,6 +216,26 @@ function SideBar() {
                       ></path>
                     </svg>
                   </div>
+                  Overview
+                </button>
+                <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
+                  <div className="grid mr-4 place-items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="3"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                      className="w-5 h-3"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      ></path>
+                    </svg>
+                  </div>
                   Analytics
                 </button>
                 <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
@@ -235,27 +256,7 @@ function SideBar() {
                       ></path>
                     </svg>
                   </div>
-                  Reporting
-                </button>
-                <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
-                  <div className="grid mr-4 place-items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="3"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                      className="w-5 h-3"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      ></path>
-                    </svg>
-                  </div>
-                  Projects
+                  Reports
                 </button>
               </nav>
             </div>
@@ -268,7 +269,7 @@ function SideBar() {
           >
             <button
               type="button"
-              onClick={toggleEcommerce}
+              onClick={toggleRecruitment}
               className="flex items-center justify-between w-full p-3 font-sans text-xl antialiased font-semibold leading-snug text-left transition-colors border-b-0 select-none border-b-gray-700 text-gray-300 hover:text-gray-100"
             >
               <div className="grid mr-4 place-items-center">
@@ -281,13 +282,14 @@ function SideBar() {
                 >
                   <path
                     fillRule="evenodd"
-                    d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
+                    d="M7.5 5.25a3 3 0 013-3h3a3 3 0 013 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.936 2.752A24.726 24.726 0 0112 15.75c-2.73 0-5.357-.442-7.814-1.259-1.202-.4-1.936-1.541-1.936-2.752V8.706c0-1.434 1.022-2.7 2.476-2.917A48.814 48.814 0 017.5 5.455V5.25zm7.5 0v.09a49.488 49.488 0 00-6 0v-.09a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5zm-3 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
                     clipRule="evenodd"
-                  ></path>
+                  />
+                  <path d="M3 18.4v-2.796a4.3 4.3 0 00.713.31A26.226 26.226 0 0012 17.25c2.892 0 5.68-.468 8.287-1.335.252-.084.49-.189.713-.311V18.4c0 1.452-1.047 2.728-2.523 2.923-2.12.282-4.282.427-6.477.427a49.19 49.19 0 01-6.477-.427C4.047 21.128 3 19.852 3 18.4z" />
                 </svg>
               </div>
               <p className="block mr-auto font-sans text-base antialiased font-normal leading-relaxed text-white">
-                E-Commerce
+                Recruitment
               </p>
               <span className="ml-4">
                 <svg
@@ -298,7 +300,7 @@ function SideBar() {
                   stroke="currentColor"
                   aria-hidden="true"
                   className={`w-4 h-4 mx-auto transition-transform ${
-                    isEcommerceOpen ? "rotate-180" : ""
+                    isRecruitmentOpen ? "rotate-180" : ""
                   }`}
                 >
                   <path
@@ -312,7 +314,7 @@ function SideBar() {
           </div>
           <div
             className={`overflow-hidden transition-all duration-300 ${
-              isEcommerceOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+              isRecruitmentOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
             }`}
           >
             <div className="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-400">
@@ -335,7 +337,7 @@ function SideBar() {
                       ></path>
                     </svg>
                   </div>
-                  Orders
+                  Applications
                 </button>
                 <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
                   <div className="grid mr-4 place-items-center">
@@ -355,7 +357,112 @@ function SideBar() {
                       ></path>
                     </svg>
                   </div>
-                  Products
+                  Interviews
+                </button>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div className="relative block w-full">
+          <div
+            role="button"
+            className="flex items-center w-full p-0 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100"
+          >
+            <button
+              type="button"
+              onClick={togglePerformance}
+              className="flex items-center justify-between w-full p-3 font-sans text-xl antialiased font-semibold leading-snug text-left transition-colors border-b-0 select-none border-b-gray-700 text-gray-300 hover:text-gray-100"
+            >
+              <div className="grid mr-4 place-items-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  className="w-5 h-5"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
+                    clipRule="evenodd"
+                  />
+                  <path
+                    fillRule="evenodd"
+                    d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
+              <p className="block mr-auto font-sans text-base antialiased font-normal leading-relaxed text-white">
+                Performance
+              </p>
+              <span className="ml-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2.5"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                  className={`w-4 h-4 mx-auto transition-transform ${
+                    isPerformanceOpen ? "rotate-180" : ""
+                  }`}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  ></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            className={`overflow-hidden transition-all duration-300 ${
+              isPerformanceOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            }`}
+          >
+            <div className="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-400">
+              <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-gray-300">
+                <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
+                  <div className="grid mr-4 place-items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="3"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                      className="w-5 h-3"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      ></path>
+                    </svg>
+                  </div>
+                  Evaluations
+                </button>
+                <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
+                  <div className="grid mr-4 place-items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="3"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                      className="w-5 h-3"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                      ></path>
+                    </svg>
+                  </div>
+                  Feedback
                 </button>
               </nav>
             </div>
@@ -370,17 +477,13 @@ function SideBar() {
               aria-hidden="true"
               className="w-5 h-5"
             >
-              <path
-                fillRule="evenodd"
-                d="M6.912 3a3 3 0 00-2.868 2.118l-2.411 7.838a3 3 0 00-.133.882V18a3 3 0 003 3h15a3 3 0 003-3v-4.162c0-.299-.045-.596-.133-.882l-2.412-7.838A3 3 0 0017.088 3H6.912zm13.823 9.75l-2.213-7.191A1.5 1.5 0 0017.088 4.5H6.912a1.5 1.5 0 00-1.434 1.059L3.265 12.75H6.11a3 3 0 012.684 1.658l.256.513a1.5 1.5 0 001.342.829h3.218a1.5 1.5 0 001.342-.83l.256-.512a3 3 0 012.684-1.658h2.844z"
-                clipRule="evenodd"
-              ></path>
+              <path d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z" />
             </svg>
           </div>
-          Inbox
+          Mentors Directory
           <div className="grid ml-auto place-items-center justify-self-end">
             <div className="relative grid items-center px-2 py-1 font-sans text-xs font-bold uppercase rounded-full select-none whitespace-nowrap bg-gray-600/50 text-gray-200">
-              <span className="">14</span>
+              <span className="">18</span>
             </div>
           </div>
         </button>
@@ -395,12 +498,12 @@ function SideBar() {
             >
               <path
                 fillRule="evenodd"
-                d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+                d="M6.75 2.25A.75.75 0 017.5 3v1.5h9V3A.75.75 0 0118 3v1.5h.75a3 3 0 013 3v11.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V7.5a3 3 0 013-3H6V3a.75.75 0 01.75-.75zm13.5 9a1.5 1.5 0 00-1.5-1.5H5.25a1.5 1.5 0 00-1.5 1.5v7.5a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5v-7.5z"
                 clipRule="evenodd"
               ></path>
             </svg>
           </div>
-          Profile
+          Schedule
         </button>
         <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
           <div className="grid mr-4 place-items-center">
@@ -445,3 +548,5 @@ function SideBar() {
     </div>
   );
 }
+
+export { ManageSide };
