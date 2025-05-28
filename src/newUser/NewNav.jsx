@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function NewNav() {
   return (
     <>
       <div
@@ -48,6 +48,9 @@ function Navbar() {
                 </Link>
               </li>
               <li>
+                <Link to="/Lamar" className="font-bold font-montserrat">
+                  Lamar
+                </Link>
               </li>
             </ul>
           </div>
@@ -89,11 +92,16 @@ function Navbar() {
                 </ul>
               </details>
             </li>
+            <li>
+              <Link to="/Lamar" className="font-bold font-montserrat">
+                Lamar
+              </Link>
+            </li>
           </ul>
         </div>
 
         <div className="navbar-end bg-[#1c2953]">
-          <NotifBar />
+          <NewNotif />
           <Link to="/" className="btn font-bold font-montserrat">
             Logout
           </Link>
@@ -103,9 +111,9 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default NewNav;
 
-function NotifBar() {
+function NewNotif() {
   return (
     <>
       <ul className="menu bg- lg:menu-horizontal rounded-box">

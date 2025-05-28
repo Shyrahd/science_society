@@ -4,11 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Notfound from "./pages/Notfound";
 import Profil from "./pages/Profil";
-import Lamar from "./pages/Lamar";
+import Lamar from "./newUser/Lamar";
 import Jadwal from "./pages/Jadwal";
 import Dashboard from "./management/Dashboard";
 import Face from "./Face";
 import AdmProfile from "./management/AdmProfile";
+import LandPage from "./newUser/LandPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/Profil" element={<Profil />} />
           <Route path="/Lamar" element={<Lamar />} />
           <Route path="/Jadwal" element={<Jadwal />} />
+          <Route path="/LandPage" element={<LandPage />} />
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/AdmProfile" element={<AdmProfile />} />
           <Route path="*" element={<Notfound />} />

@@ -15,6 +15,14 @@ function UserLog() {
   return (
     <>
       <div className="min-h-screen flex">
+        <div className="flex-1 bg-base-300 flex justify-center items-center">
+          <div className="text-center">
+            <caption></caption>
+            <h2 className="text-2xl font-bold mb-4">New User Login</h2>
+            <Newbtn />
+          </div>
+        </div>
+
         {/* Left Side - User Login */}
         <div className="flex-1 bg-[#1c2953] flex justify-center items-center">
           <div className="text-center">
@@ -32,6 +40,19 @@ function UserLog() {
           </div>
         </div>
       </div>
+    </>
+  );
+}
+
+function Newbtn() {
+  return (
+    <>
+      <Link
+        to="/LandPage"
+        className="btn bg-white text-gray-800 border border-gray-300 hover:bg-gray-100 font-bold font-montserrat transition-all duration-300 shadow-sm"
+      >
+        New User
+      </Link>
     </>
   );
 }
