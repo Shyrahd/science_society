@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -19,13 +21,12 @@ function NewNav() {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {" "}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
+                />
               </svg>
             </div>
             <ul
@@ -68,6 +69,11 @@ function NewNav() {
               </Link>
             </li>
             <li>
+              <Link to="/Pelatihan" className="font-bold font-montserrat">
+                Pelatihan
+              </Link>
+            </li>
+            <li>
               <Link to="/Lamar" className="font-bold font-montserrat">
                 Lamar
               </Link>
@@ -75,7 +81,7 @@ function NewNav() {
           </ul>
         </div>
 
-        <div className="navbar-end bg-[#1c2953]">
+        <div className="navbar-end bg-[#1c2953] flex items-center gap-2">
           <NewNotif />
           <Link to="/" className="btn font-bold font-montserrat">
             Logout
@@ -89,56 +95,141 @@ function NewNav() {
 export default NewNav;
 
 function NewNotif() {
+  const notifications = [
+    {
+      id: 1,
+      title: "Akun Berhasil Dibuat",
+      message: "Anda berhasil membuat akun baru",
+      time: "2 jam yang lalu",
+      isRead: false,
+    },
+    {
+      id: 2,
+      title: "Lamaran Terkirim",
+      message: "Lamaran Anda telah berhasil dikirim",
+      time: "1 hari yang lalu",
+      isRead: false,
+    },
+    {
+      id: 3,
+      title: "Selamat! Anda Lolos",
+      message: "Anda lolos seleksi dan akan memulai pelatihan",
+      time: "3 hari yang lalu",
+      isRead: true,
+    },
+  ];
+
+  const unreadCount = notifications.filter((notif) => !notif.isRead).length;
+
+  const toggleDropdown = (e) => {
+    const dropdown = e.currentTarget.parentElement;
+    dropdown?.classList.toggle("dropdown-open");
+  };
+
+  const markAllAsRead = () => {
+    console.log("Marking all notifications as read");
+  };
+
+  React.useEffect(() => {
+    function handleClickOutside(event) {
+      const dropdowns = document.querySelectorAll(".dropdown-open");
+      dropdowns.forEach((dropdown) => {
+        if (!dropdown.contains(event.target)) {
+          dropdown.classList.remove("dropdown-open");
+        }
+      });
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <>
-      <ul className="menu bg- lg:menu-horizontal rounded-box">
-        <li>
-          <a>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-              />
-            </svg>
-            Inbox
-            <span className="badge badge-xs">99+</span>
-          </a>
-        </li>
-        <li>
-          <a>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            Updates
-            <span className="badge badge-xs badge-warning">NEW</span>
-          </a>
-        </li>
-        <li>
-          <a>
-            Stats
-            <span className="badge badge-xs badge-info"></span>
-          </a>
-        </li>
-      </ul>
-    </>
+    <div className="dropdown dropdown-end">
+      <div
+        tabIndex={0}
+        role="button"
+        className="btn btn-ghost btn-circle relative"
+        onClick={toggleDropdown}
+      >
+        {/* Simple white bell icon */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="white"
+          strokeWidth="2"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+          />
+        </svg>
+        {unreadCount > 0 && (
+          <span className="badge badge-sm badge-error absolute -top-1 -right-1">
+            {unreadCount}
+          </span>
+        )}
+      </div>
+
+      <div
+        tabIndex={0}
+        className="dropdown-content card card-compact w-80 p-2 shadow bg-base-100 text-base-content mt-3"
+      >
+        <div className="card-body">
+          <h3 className="font-bold text-lg mb-3">Notifikasi</h3>
+          <div className="space-y-3">
+            {notifications.map((notification) => (
+              <div
+                key={notification.id}
+                className={`p-3 rounded-lg border-l-4 ${
+                  notification.isRead
+                    ? "border-gray-300 bg-gray-50"
+                    : "border-primary bg-primary/5"
+                }`}
+              >
+                <div className="flex justify-between items-start">
+                  <div className="flex-1">
+                    <h4
+                      className={`font-semibold text-sm ${
+                        notification.isRead
+                          ? "text-gray-600"
+                          : "text-base-content"
+                      }`}
+                    >
+                      {notification.title}
+                    </h4>
+                    <p
+                      className={`text-xs mt-1 ${
+                        notification.isRead
+                          ? "text-gray-500"
+                          : "text-base-content/70"
+                      }`}
+                    >
+                      {notification.message}
+                    </p>
+                    <span className="text-xs text-gray-400 mt-2 block">
+                      {notification.time}
+                    </span>
+                  </div>
+                  {!notification.isRead && (
+                    <div className="w-2 h-2 bg-primary rounded-full ml-2 mt-1"></div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="card-actions justify-end mt-4">
+            <button className="btn btn-sm btn-ghost" onClick={markAllAsRead}>
+              Tandai Semua Dibaca
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
