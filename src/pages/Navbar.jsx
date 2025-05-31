@@ -411,7 +411,7 @@ function NotifBar() {
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-gray-700 font-medium">
-                    Tingkat Kelulusan
+                    Tingkat Kehadiran
                   </span>
                   <span className="font-bold text-blue-600">92%</span>
                 </div>

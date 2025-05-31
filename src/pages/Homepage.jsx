@@ -33,7 +33,7 @@ function Hero({ scrollToSchedule }) {
     <div
       className="hero min-h-screen"
       style={{
-        backgroundImage: "url(/placeholder.svg?height=800&width=1200)",
+        backgroundImage: "url(/IMG_2513.png)",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -57,9 +57,6 @@ function Hero({ scrollToSchedule }) {
               onClick={scrollToSchedule}
             >
               Lihat Jadwal Hari Ini
-            </button>
-            <button className="btn btn-outline btn-lg text-white border-white hover:bg-white hover:text-gray-800">
-              Kelola Kelas
             </button>
           </div>
         </div>
@@ -283,8 +280,8 @@ const ScheduleSection = ({ ref }) => {
       subject: "PU - Penalaran Umum",
       level: "UTBK Intensif",
       type: "Logika Matematika",
-      students: 25,
-      room: "Ruang A1",
+      students: 10,
+      room: "Ruang B2",
       levelColor: "badge-error",
     },
     {
@@ -292,57 +289,57 @@ const ScheduleSection = ({ ref }) => {
       subject: "PU - Penalaran Umum",
       level: "SNBT Persiapan",
       type: "Penalaran Verbal",
-      students: 20,
-      room: "Ruang B2",
+      students: 5,
+      room: "Ruang Konsultasi",
       levelColor: "badge-primary",
     },
   ];
 
   const weeklySchedule = [
     {
-      day: "Senin",
+      day: "Selasa",
       date: "27 Mei 2024",
       sessions: 2,
       hours: "08:00 - 16:00",
       topics: ["Logika Matematika", "Penalaran Verbal"],
     },
     {
-      day: "Selasa",
+      day: "Rabu",
       date: "28 Mei 2024",
       sessions: 2,
       hours: "09:00 - 17:00",
       topics: ["Analisis Data", "Problem Solving"],
     },
     {
-      day: "Rabu",
+      day: "Kamis",
       date: "29 Mei 2024",
       sessions: 2,
       hours: "08:00 - 15:00",
       topics: ["Penalaran Kuantitatif", "Simulasi Ujian"],
     },
     {
-      day: "Kamis",
+      day: "Jumat",
       date: "30 Mei 2024",
       sessions: 2,
       hours: "10:00 - 18:00",
       topics: ["Penalaran Figural", "Review & Pembahasan"],
     },
     {
-      day: "Jumat",
+      day: "Sabtu",
       date: "31 Mei 2024",
       sessions: 2,
       hours: "08:00 - 16:00",
       topics: ["Strategi Pengerjaan", "Bimbingan Personal"],
     },
     {
-      day: "Sabtu",
+      day: "Minggu",
       date: "1 Juni 2024",
       sessions: 1,
       hours: "09:00 - 11:00",
       topics: ["Try Out UTBK"],
     },
     {
-      day: "Minggu",
+      day: "Senin",
       date: "2 Juni 2024",
       sessions: 0,
       hours: "Libur",

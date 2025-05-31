@@ -19,7 +19,7 @@ function Pelatihan() {
     current: [
       {
         id: 1,
-        day: "Senin",
+        day: "Selasa",
         date: "27 Mei 2024",
         sessions: [
           {
@@ -42,7 +42,7 @@ function Pelatihan() {
       },
       {
         id: 2,
-        day: "Selasa",
+        day: "Rabu",
         date: "28 Mei 2024",
         sessions: [
           {
@@ -65,7 +65,7 @@ function Pelatihan() {
       },
       {
         id: 3,
-        day: "Rabu",
+        day: "Kamis",
         date: "29 Mei 2024",
         sessions: [
           {
@@ -88,7 +88,7 @@ function Pelatihan() {
       },
       {
         id: 4,
-        day: "Kamis",
+        day: "Jumat",
         date: "30 Mei 2024",
         sessions: [
           {
@@ -111,7 +111,7 @@ function Pelatihan() {
       },
       {
         id: 5,
-        day: "Jumat",
+        day: "Sabtu",
         date: "31 Mei 2024",
         sessions: [
           {
@@ -272,9 +272,7 @@ function Pelatihan() {
             <div className="text-gray-600">Sesi Minggu Ini</div>
           </div>
           <div className="bg-white rounded-lg shadow p-6 text-center">
-            <div className="text-3xl font-bold text-green-600">
-              {totalStudents}
-            </div>
+            <div className="text-3xl font-bold text-green-600">25</div>
             <div className="text-gray-600">Total Siswa</div>
           </div>
           <div className="bg-white rounded-lg shadow p-6 text-center">

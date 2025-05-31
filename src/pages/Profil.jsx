@@ -94,13 +94,13 @@ function InstructorIdCard() {
               </span>
             </div>
             <p className="text-sm font-semibold text-blue-700">
-              UTBK & Sekolah Kedinasan
+              Penalaran Umum
             </p>
           </div>
 
           {/* Department */}
           <div className="pt-2 border-t border-blue-200">
-            <p className="text-xs text-gray-600">Bimbel Excellence</p>
+            <p className="text-xs text-gray-600">Bimbel Science Society</p>
           </div>
         </div>
       </div>
@@ -303,7 +303,7 @@ function Biodata() {
             Tri Aji Alhuda
           </h2>
           <p className="text-sm text-gray-500">
-            Mentor Penalaran Umum - Bimbel Excellence
+            Mentor Penalaran Umum - Bimbel Science Society
           </p>
         </div>
         <div className="px-6 pb-6 text-sm text-gray-700">
@@ -312,15 +312,14 @@ function Biodata() {
           </p>
           <p>
             <span className="font-semibold">Email:</span>{" "}
-            triaji.alhuda@bimbelexcellence.com
+            triaji.alhuda@bimbelSS.com
           </p>
           <p>
             <span className="font-semibold">No. Telepon:</span> +62
             812-3456-7890
           </p>
           <p>
-            <span className="font-semibold">Alamat:</span> Jl. Pendidikan No.
-            15, Jakarta Selatan
+            <span className="font-semibold">Alamat:</span> Jl. Gub H Bastari E4, Palembang
           </p>
           <p>
             <span className="font-semibold">Bidang Keahlian:</span> Penalaran
@@ -330,17 +329,13 @@ function Biodata() {
             <span className="font-semibold">Riwayat Pendidikan:</span>
           </p>
           <ul className="list-disc list-inside ml-4">
-            <li>S1 Ilmu Komputer - Universitas Indonesia</li>
-            <li>Sertifikasi Mentor UTBK & Sekolah Kedinasan</li>
-            <li>Pelatihan Metode Pembelajaran Kelas Kecil</li>
+            <li>S1 Manajemen Informatika - Polsri</li>
           </ul>
           <p className="mt-2">
             <span className="font-semibold">Pengalaman Mengajar:</span>
           </p>
           <ul className="list-disc list-inside ml-4">
-            <li>Penalaran Umum UTBK - 5 tahun</li>
-            <li>Persiapan Sekolah Kedinasan - 3 tahun</li>
-            <li>Bimbingan Personal & Konsultasi - 2 tahun</li>
+            <li>Penalaran Umum UTBK - 2 tahun</li>
           </ul>
         </div>
       </div>
@@ -361,8 +356,7 @@ function MentorDetail() {
                 Pengalaman Mengajar
               </h3>
               <p className="text-gray-600">
-                5+ tahun mengajar Penalaran Umum dengan fokus kelas kecil dan
-                personal
+                Pengajar PU selama 2 Tahun
               </p>
             </div>
 
@@ -394,7 +388,7 @@ function MentorDetail() {
               <h3 className="text-lg font-semibold text-gray-700">
                 Siswa Dibimbing
               </h3>
-              <p className="text-2xl font-bold text-primary">86</p>
+              <p className="text-2xl font-bold text-primary">25</p>
               <p className="text-sm text-gray-500">siswa aktif saat ini</p>
             </div>
 
@@ -424,7 +418,7 @@ function MentorDetail() {
             <div className="flex items-center space-x-2">
               <span className="w-2 h-2 bg-primary rounded-full"></span>
               <span className="text-gray-600">
-                Mentor Terbaik Bimbel Excellence 2024
+                Mentor Terbaik Bimbel Science Society 2024
               </span>
             </div>
             <div className="flex items-center space-x-2">
@@ -483,7 +477,7 @@ function Performa() {
         <div className="card bg-base-100 shadow-lg">
           <div className="card-body">
             <h2 className="card-title text-warning">Siswa Aktif</h2>
-            <div className="text-3xl font-bold text-gray-700">86</div>
+            <div className="text-3xl font-bold text-gray-700">25</div>
             <p className="text-gray-600">Total siswa yang sedang dibimbing</p>
             <div className="card-actions justify-end">
               <button className="btn btn-warning btn-sm">Lihat Detail</button>
@@ -534,11 +528,11 @@ function Akun() {
   const [isEditing, setIsEditing] = useState(false);
   const [userInfo, setUserInfo] = useState({
     name: "Tri Aji Alhuda",
-    email: "triaji.alhuda@bimbelexcellence.com",
+    email: "triaji.alhuda@bimbelScience Society.com",
     phone: "+62 812-3456-7890",
-    department: "Bimbel Excellence",
+    department: "Bimbel Science Society",
     employeeId: "PU2024001",
-    joinDate: "Januari 2019",
+    joinDate: "Januari 2024",
     position: "Mentor Penalaran Umum",
   });
 
@@ -736,7 +730,9 @@ function AccountDetails({ userInfo, setUserInfo, isEditing }) {
               onChange={(e) => handleInputChange("department", e.target.value)}
               className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
             >
-              <option value="Bimbel Excellence">Bimbel Excellence</option>
+              <option value="Bimbel Science Society">
+                Bimbel Science Society
+              </option>
               <option value="Bimbel Neutron">Bimbel Neutron</option>
               <option value="Bimbel Ganesha">Bimbel Ganesha</option>
               <option value="Bimbel Primagama">Bimbel Primagama</option>

@@ -28,7 +28,7 @@ function MentorCard() {
       experience: "8 tahun",
       rating: 4.9,
       subjects: ["TIU", "Matematika", "Logika"],
-      specialization: "Spesialis Tes Intelegensi Umum",
+      specialization: "Mentor Ahli TIU untuk Tes Kedinasan dan SNBT",
     },
     {
       id: 2,
@@ -37,7 +37,7 @@ function MentorCard() {
       experience: "6 tahun",
       rating: 4.8,
       subjects: ["TWK", "Pancasila", "UUD 1945"],
-      specialization: "Ahli Tes Wawasan Kebangsaan",
+      specialization: "Spesialis TWK untuk Seleksi Kedinasan dan UTBK",
     },
     {
       id: 3,
@@ -46,7 +46,7 @@ function MentorCard() {
       experience: "10 tahun",
       rating: 4.9,
       subjects: ["TKP", "Psikologi", "Kepribadian"],
-      specialization: "Expert Tes Karakteristik Pribadi",
+      specialization: "Ahli TKP dan Pengembangan Karakter untuk Tes Masuk",
     },
     {
       id: 4,
@@ -55,7 +55,7 @@ function MentorCard() {
       experience: "7 tahun",
       rating: 4.7,
       subjects: ["Bahasa Indonesia", "PUEBI", "Sastra"],
-      specialization: "Spesialis Bahasa Indonesia",
+      specialization: "Instruktur Bahasa Indonesia untuk UTBK dan Kedinasan",
     },
     {
       id: 5,
@@ -64,7 +64,7 @@ function MentorCard() {
       experience: "9 tahun",
       rating: 4.8,
       subjects: ["Bahasa Inggris", "TOEFL", "Grammar"],
-      specialization: "Native English Speaker",
+      specialization: "Pengajar Bahasa Inggris untuk SNBT dan UTBK",
     },
     {
       id: 6,
@@ -73,7 +73,7 @@ function MentorCard() {
       experience: "12 tahun",
       rating: 4.9,
       subjects: ["Sejarah", "TWK", "Wawasan Nusantara"],
-      specialization: "Sejarawan & Peneliti",
+      specialization: "Mentor TWK Sejarah & Kebangsaan untuk Tes Kedinasan",
     },
     {
       id: 7,
@@ -82,7 +82,7 @@ function MentorCard() {
       experience: "5 tahun",
       rating: 4.6,
       subjects: ["Ekonomi", "Manajemen", "TIU"],
-      specialization: "Praktisi Ekonomi",
+      specialization: "Pengajar Ekonomi & TIU untuk SNBT dan UTBK",
     },
     {
       id: 8,
@@ -91,7 +91,7 @@ function MentorCard() {
       experience: "8 tahun",
       rating: 4.8,
       subjects: ["Sosiologi", "Antropologi", "TWK"],
-      specialization: "Peneliti Sosial",
+      specialization: "Mentor TWK Sosial Budaya untuk Kedinasan",
     },
     {
       id: 9,
@@ -100,16 +100,16 @@ function MentorCard() {
       experience: "6 tahun",
       rating: 4.7,
       subjects: ["Geografi", "Lingkungan", "TWK"],
-      specialization: "Ahli Geografi Indonesia",
+      specialization: "Ahli TWK Lingkungan & Geografi untuk Tes Masuk",
     },
     {
       id: 10,
-      name: "Lisa Permata, S.Psi., M.Psi",
-      education: "S2 Psikologi Klinis - UNPAD",
-      experience: "4 tahun",
-      rating: 4.5,
-      subjects: ["TKP", "Konseling", "Motivasi"],
-      specialization: "Psikolog Klinis",
+      name: "Tri Aji Alhuda",
+      education: "D4 Manajemen Informatika - POLSRI",
+      experience: "2 tahun",
+      rating: 4.8,
+      subjects: ["PU", "Konseling", "Motivasi"],
+      specialization: "Mentor Konseling & Motivasi Belajar Tes SNBT",
     },
   ];
 

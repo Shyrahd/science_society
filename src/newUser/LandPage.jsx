@@ -1,5 +1,7 @@
 "use client";
+import { Link } from "react-router-dom";
 import NewNav from "./NewNav";
+import Footerr from "../pages/Footerr";
 
 function LandPage() {
   return (
@@ -13,7 +15,7 @@ function LandPage() {
       <CompanyValues />
       <ApplicationProcess />
       <CallToAction />
-      <Footer />
+      <Footerr />
     </>
   );
 }
@@ -25,8 +27,7 @@ function UserHero() {
     <div
       className="hero min-h-screen"
       style={{
-        backgroundImage:
-          "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
+        backgroundImage: "url(/image_1.png)",
       }}
     >
       <div className="hero-overlay bg-opacity-60"></div>
@@ -44,12 +45,11 @@ function UserHero() {
             profesional yang gemilang dengan kompensasi yang kompetitif.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="btn btn-primary btn-lg">
-              Lamar Jadi Mentor
-            </button>
-            <button className="btn btn-outline btn-lg text-white border-white hover:bg-white hover:text-[#1c2953]">
-              Pelajari Lebih Lanjut
-            </button>
+            <Link to="/Lamar">
+              <button className="btn btn-primary btn-lg">
+                Lamar Jadi Mentor
+              </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -384,7 +384,7 @@ function CompanyValues() {
               <div className="text-gray-600">Tingkat Kelulusan</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-[#1c2953] mb-2">15</div>
+              <div className="text-3xl font-bold text-[#1c2953] mb-2">135</div>
               <div className="text-gray-600">Cabang di Indonesia</div>
             </div>
           </div>
@@ -480,10 +480,9 @@ function CallToAction() {
           bimbingan terbaik dari Anda!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-          <button className="btn btn-white btn-lg">Lamar Sekarang</button>
-          <button className="btn btn-outline btn-lg border-white text-white hover:bg-white hover:text-[#1c2953]">
-            Download Info Lengkap
-          </button>
+          <Link to="/Lamar">
+            <button className="btn btn-white btn-lg">Lamar Sekarang</button>
+          </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto text-sm">
           <div>📞 Hotline Rekrutmen: 0812-3456-7890</div>
@@ -492,57 +491,6 @@ function CallToAction() {
         </div>
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="bg-[#1c2953] text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-xl font-bold mb-4">Science Society</h3>
-            <p className="text-sm opacity-75">
-              Bergabunglah dengan tim mentor terbaik dan wujudkan karir mengajar
-              impian Anda bersama kami.
-            </p>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Karir</h4>
-            <ul className="space-y-2 text-sm opacity-75">
-              <li>Lowongan Mentor</li>
-              <li>Program Magang</li>
-              <li>Benefit & Fasilitas</li>
-              <li>Jenjang Karir</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Tentang Kami</h4>
-            <ul className="space-y-2 text-sm opacity-75">
-              <li>Profil Perusahaan</li>
-              <li>Visi & Misi</li>
-              <li>Tim Leadership</li>
-              <li>Budaya Kerja</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-4">Kontak</h4>
-            <ul className="space-y-2 text-sm opacity-75">
-              <li>📧 careers@sciencesociety.id</li>
-              <li>📞 0812-3456-7890</li>
-              <li>📍 Jakarta, Indonesia</li>
-              <li>🌐 www.sciencesociety.id</li>
-            </ul>
-          </div>
-        </div>
-        <div className="border-t border-white/20 mt-8 pt-8 text-center text-sm opacity-75">
-          <p>
-            &copy; 2025 Science Society. Semua hak dilindungi. | Karir Mengajar
-            Terbaik Dimulai dari Sini
-          </p>
-        </div>
-      </div>
-    </footer>
   );
 }
 

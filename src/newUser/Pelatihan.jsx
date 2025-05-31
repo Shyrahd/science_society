@@ -100,12 +100,11 @@ function ProgressSection({ currentPhase, setCurrentPhase }) {
         {phases.map((phase) => (
           <div
             key={phase.id}
-            className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
+            className={`p-4 rounded-lg border-2 transition-all ${
               currentPhase >= phase.id
                 ? "border-[#1c2953] bg-[#1c2953] text-white"
                 : "border-gray-200 bg-gray-50 hover:border-[#1c2953]"
             }`}
-            onClick={() => setCurrentPhase(phase.id)}
           >
             <div className="text-center">
               <div

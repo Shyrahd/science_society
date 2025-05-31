@@ -97,9 +97,9 @@ export default NewNav;
 function NewNotif() {
   const notifications = [
     {
-      id: 1,
-      title: "Akun Berhasil Dibuat",
-      message: "Anda berhasil membuat akun baru",
+      id: 3,
+      title: "Selamat! Anda Lolos",
+      message: "Anda lolos seleksi dan akan memulai pelatihan",
       time: "2 jam yang lalu",
       isRead: false,
     },
@@ -107,13 +107,14 @@ function NewNotif() {
       id: 2,
       title: "Lamaran Terkirim",
       message: "Lamaran Anda telah berhasil dikirim",
-      time: "1 hari yang lalu",
-      isRead: false,
+      time: "3 hari yang lalu",
+      isRead: true,
     },
     {
-      id: 3,
-      title: "Selamat! Anda Lolos",
-      message: "Anda lolos seleksi dan akan memulai pelatihan",
+      id: 1,
+      title: "Akun Berhasil Dibuat",
+      message: "Anda berhasil membuat akun baru",
+
       time: "3 hari yang lalu",
       isRead: true,
     },
