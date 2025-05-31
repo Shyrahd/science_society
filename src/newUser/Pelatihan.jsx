@@ -4,8 +4,8 @@ import { useState } from "react";
 import NewNav from "./NewNav";
 
 function Pelatihan() {
-  // Current month in the training program (1-3)
-  const [currentMonth, setCurrentMonth] = useState(1);
+  // Current phase in the training program (1-3)
+  const [currentPhase, setCurrentPhase] = useState(1);
 
   return (
     <>
@@ -13,11 +13,12 @@ function Pelatihan() {
       <div className="container mx-auto px-4 py-8">
         <HeaderSection />
         <ProgressSection
-          currentMonth={currentMonth}
-          setCurrentMonth={setCurrentMonth}
+          currentPhase={currentPhase}
+          setCurrentPhase={setCurrentPhase}
         />
+        <TrainingPhases currentPhase={currentPhase} />
         <UpcomingSchedule />
-        <TrainingMaterials currentMonth={currentMonth} />
+        <ContinuousLearning />
         <CommunitySupport />
       </div>
     </>
@@ -32,18 +33,50 @@ function HeaderSection() {
       <h1 className="text-3xl font-bold text-[#1c2953] mb-2">
         Program Pelatihan Mentor
       </h1>
-      <p className="text-gray-600">
-        Selamat datang di program pelatihan mentor Science Society. Program ini
-        akan mempersiapkan Anda menjadi tutor handal untuk UTBK, Kedinasan, dan
-        Tes Masuk Perguruan Tinggi selama 3 bulan.
+      <p className="text-gray-600 mb-4">
+        Selamat datang di program pelatihan mentor Science Society. Kami
+        investasikan waktu dan biaya untuk mengembangkan kemampuan Anda menjadi
+        mentor terbaik dalam 12 minggu pelatihan intensif.
       </p>
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <h3 className="font-semibold text-blue-800 mb-2">
+          💡 Program Overview:
+        </h3>
+        <p className="text-sm text-blue-700">
+          Program pelatihan terdiri dari 3 fase: Onboarding & Orientasi (2
+          minggu), Pelatihan Intensif (6 minggu), dan Sertifikasi & Deployment
+          (4 minggu). Total durasi 12 minggu dengan sertifikasi resmi di akhir
+          program.
+        </p>
+      </div>
     </div>
   );
 }
 
-function ProgressSection({ currentMonth, setCurrentMonth }) {
-  // Calculate progress percentage (1/3 = 33%, 2/3 = 67%, 3/3 = 100%)
-  const progressPercentage = Math.round((currentMonth / 3) * 100);
+function ProgressSection({ currentPhase, setCurrentPhase }) {
+  const phases = [
+    {
+      id: 1,
+      name: "Onboarding & Orientasi",
+      duration: "2 Minggu",
+      weeks: "Minggu 1-2",
+    },
+    {
+      id: 2,
+      name: "Pelatihan Intensif",
+      duration: "6 Minggu",
+      weeks: "Minggu 3-8",
+    },
+    {
+      id: 3,
+      name: "Sertifikasi & Deployment",
+      duration: "4 Minggu",
+      weeks: "Minggu 9-12",
+    },
+  ];
+
+  // Calculate progress percentage based on phase
+  const progressPercentage = Math.round((currentPhase / 3) * 100);
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-8">
@@ -56,84 +89,184 @@ function ProgressSection({ currentMonth, setCurrentMonth }) {
         </span>
       </div>
 
-      <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
+      <div className="w-full bg-gray-200 rounded-full h-4 mb-6">
         <div
           className="bg-[#1c2953] h-4 rounded-full transition-all duration-500"
           style={{ width: `${progressPercentage}%` }}
         ></div>
       </div>
 
-      <div className="flex justify-between text-sm text-gray-600">
-        <div
-          className={`flex flex-col items-center ${
-            currentMonth >= 1 ? "text-[#1c2953] font-medium" : ""
-          }`}
-        >
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {phases.map((phase) => (
           <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center mb-1 ${
-              currentMonth >= 1 ? "bg-[#1c2953] text-white" : "bg-gray-200"
+            key={phase.id}
+            className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
+              currentPhase >= phase.id
+                ? "border-[#1c2953] bg-[#1c2953] text-white"
+                : "border-gray-200 bg-gray-50 hover:border-[#1c2953]"
             }`}
+            onClick={() => setCurrentPhase(phase.id)}
           >
-            1
+            <div className="text-center">
+              <div
+                className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-2 ${
+                  currentPhase >= phase.id
+                    ? "bg-white text-[#1c2953]"
+                    : "bg-[#1c2953] text-white"
+                }`}
+              >
+                {phase.id}
+              </div>
+              <h3 className="font-semibold text-sm mb-1">{phase.name}</h3>
+              <p className="text-xs opacity-75">{phase.duration}</p>
+              <p className="text-xs opacity-75">{phase.weeks}</p>
+            </div>
           </div>
-          <span>Bulan 1</span>
-        </div>
-        <div
-          className={`flex flex-col items-center ${
-            currentMonth >= 2 ? "text-[#1c2953] font-medium" : ""
-          }`}
-        >
-          <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center mb-1 ${
-              currentMonth >= 2 ? "bg-[#1c2953] text-white" : "bg-gray-200"
-            }`}
-          >
-            2
-          </div>
-          <span>Bulan 2</span>
-        </div>
-        <div
-          className={`flex flex-col items-center ${
-            currentMonth >= 3 ? "text-[#1c2953] font-medium" : ""
-          }`}
-        >
-          <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center mb-1 ${
-              currentMonth >= 3 ? "bg-[#1c2953] text-white" : "bg-gray-200"
-            }`}
-          >
-            3
-          </div>
-          <span>Bulan 3</span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function TrainingPhases({ currentPhase }) {
+  const getPhaseContent = (phase) => {
+    const content = {
+      1: {
+        title: "Fase 1: Onboarding & Orientasi",
+        duration: "2 Minggu",
+        description:
+          "Pengenalan mendalam tentang Science Society dan persiapan dasar mengajar",
+        materials: [
+          {
+            title: "Pengenalan Budaya Perusahaan",
+            description:
+              "Memahami visi, misi, nilai-nilai, dan budaya kerja Science Society",
+            progress: currentPhase > 1 ? 100 : 75,
+            week: "Minggu 1",
+          },
+          {
+            title: "Sistem dan Metodologi Science Society",
+            description:
+              "Mempelajari sistem pembelajaran dan metodologi pengajaran yang digunakan",
+            progress: currentPhase > 1 ? 100 : 60,
+            week: "Minggu 1",
+          },
+          {
+            title: "Platform Teknologi Pembelajaran",
+            description:
+              "Pelatihan penggunaan platform digital dan tools pembelajaran online",
+            progress: currentPhase > 1 ? 100 : 40,
+            week: "Minggu 2",
+          },
+          {
+            title: "Standar Kualitas Mengajar",
+            description:
+              "Memahami standar dan ekspektasi kualitas mengajar di Science Society",
+            progress: currentPhase > 1 ? 100 : 20,
+            week: "Minggu 2",
+          },
+        ],
+      },
+      2: {
+        title: "Fase 2: Pelatihan Intensif",
+        duration: "6 Minggu",
+        description:
+          "Pelatihan mendalam teknik mengajar dan manajemen kelas yang efektif",
+        materials: [
+          {
+            title: "Teknik Mengajar yang Efektif",
+            description:
+              "Metode dan strategi mengajar yang terbukti efektif untuk berbagai tipe siswa",
+            progress: currentPhase > 2 ? 100 : currentPhase === 2 ? 80 : 0,
+            week: "Minggu 3-4",
+          },
+          {
+            title: "Manajemen Kelas dan Siswa",
+            description:
+              "Cara mengelola kelas, memotivasi siswa, dan menangani berbagai situasi",
+            progress: currentPhase > 2 ? 100 : currentPhase === 2 ? 60 : 0,
+            week: "Minggu 4-5",
+          },
+          {
+            title: "Analisis Soal dan Pembahasan",
+            description:
+              "Teknik menganalisis soal UTBK/Kedinasan dan menyusun pembahasan yang jelas",
+            progress: currentPhase > 2 ? 100 : currentPhase === 2 ? 40 : 0,
+            week: "Minggu 5-6",
+          },
+          {
+            title: "Simulasi Mengajar dengan Feedback",
+            description:
+              "Praktik mengajar di hadapan mentor senior dengan feedback konstruktif",
+            progress: currentPhase > 2 ? 100 : currentPhase === 2 ? 20 : 0,
+            week: "Minggu 7-8",
+          },
+        ],
+      },
+      3: {
+        title: "Fase 3: Sertifikasi & Deployment",
+        duration: "4 Minggu",
+        description:
+          "Ujian sertifikasi dan persiapan penempatan di kelas reguler",
+        materials: [
+          {
+            title: "Ujian Sertifikasi Internal",
+            description:
+              "Ujian komprehensif untuk menguji kemampuan mengajar dan penguasaan materi",
+            progress: currentPhase === 3 ? 75 : 0,
+            week: "Minggu 9-10",
+          },
+          {
+            title: "Praktik Mengajar Terbimbing",
+            description:
+              "Mengajar di kelas nyata dengan supervisi mentor senior",
+            progress: currentPhase === 3 ? 50 : 0,
+            week: "Minggu 10-11",
+          },
+          {
+            title: "Evaluasi dan Improvement",
+            description:
+              "Evaluasi performa dan rencana pengembangan berkelanjutan",
+            progress: currentPhase === 3 ? 25 : 0,
+            week: "Minggu 11-12",
+          },
+          {
+            title: "Penempatan di Kelas Reguler",
+            description:
+              "Penempatan resmi sebagai mentor di kelas reguler dengan tanggung jawab penuh",
+            progress: currentPhase === 3 ? 10 : 0,
+            week: "Minggu 12",
+          },
+        ],
+      },
+    };
+    return content[phase] || content[1];
+  };
+
+  const phaseData = getPhaseContent(currentPhase);
+
+  return (
+    <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+      <div className="mb-6">
+        <h2 className="text-xl font-semibold text-[#1c2953] mb-2">
+          {phaseData.title}
+        </h2>
+        <div className="flex items-center gap-4 mb-3">
+          <span className="badge badge-primary">{phaseData.duration}</span>
+          <span className="text-sm text-gray-600">{phaseData.description}</span>
         </div>
       </div>
 
-      {/* Month selector */}
-      <div className="mt-6 flex justify-center gap-2">
-        <button
-          className={`btn btn-sm ${
-            currentMonth === 1 ? "btn-primary" : "btn-outline"
-          }`}
-          onClick={() => setCurrentMonth(1)}
-        >
-          Bulan 1
-        </button>
-        <button
-          className={`btn btn-sm ${
-            currentMonth === 2 ? "btn-primary" : "btn-outline"
-          }`}
-          onClick={() => setCurrentMonth(2)}
-        >
-          Bulan 2
-        </button>
-        <button
-          className={`btn btn-sm ${
-            currentMonth === 3 ? "btn-primary" : "btn-outline"
-          }`}
-          onClick={() => setCurrentMonth(3)}
-        >
-          Bulan 3
-        </button>
+      <div className="space-y-4">
+        {phaseData.materials.map((material, index) => (
+          <MaterialCard
+            key={index}
+            title={material.title}
+            description={material.description}
+            progress={material.progress}
+            week={material.week}
+          />
+        ))}
       </div>
     </div>
   );
@@ -142,28 +275,40 @@ function ProgressSection({ currentMonth, setCurrentMonth }) {
 function UpcomingSchedule() {
   const scheduleData = [
     {
-      title: "Strategi Mengajar UTBK Saintek",
-      date: "15 Juni 2025",
+      title: "Orientasi Budaya Perusahaan",
+      date: "15 Februari 2025",
       time: "09:00 - 12:00",
-      instructor: "Dr. Budi Santoso",
+      instructor: "HR Team & Management",
       location: "Zoom Meeting Room A",
       type: "Online",
+      phase: "Fase 1",
     },
     {
-      title: "Teknik Pembahasan Soal Kedinasan",
-      date: "18 Juni 2025",
-      time: "13:00 - 15:00",
-      instructor: "Prof. Siti Aminah",
+      title: "Workshop Teknik Mengajar Efektif",
+      date: "1 Maret 2025",
+      time: "13:00 - 16:00",
+      instructor: "Dr. Budi Santoso",
       location: "Zoom Meeting Room B",
       type: "Online",
+      phase: "Fase 2",
     },
     {
-      title: "Metode Drill Soal Tes Masuk PTN",
-      date: "22 Juni 2025",
-      time: "10:00 - 12:30",
-      instructor: "Dr. Ahmad Wijaya",
-      location: "Zoom Meeting Room C",
-      type: "Online",
+      title: "Simulasi Mengajar & Feedback",
+      date: "15 Maret 2025",
+      time: "10:00 - 15:00",
+      instructor: "Senior Mentor Team",
+      location: "Science Society HQ",
+      type: "Hybrid",
+      phase: "Fase 2",
+    },
+    {
+      title: "Ujian Sertifikasi Internal",
+      date: "1 April 2025",
+      time: "09:00 - 12:00",
+      instructor: "Certification Board",
+      location: "Science Society HQ",
+      type: "Offline",
+      phase: "Fase 3",
     },
   ];
 
@@ -172,9 +317,9 @@ function UpcomingSchedule() {
       <h2 className="text-xl font-semibold text-[#1c2953] mb-4">
         Jadwal Pelatihan Mendatang
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {scheduleData.map((schedule, index) => (
-          <LatihCard
+          <TrainingCard
             key={index}
             title={schedule.title}
             date={schedule.date}
@@ -182,6 +327,7 @@ function UpcomingSchedule() {
             instructor={schedule.instructor}
             location={schedule.location}
             type={schedule.type}
+            phase={schedule.phase}
           />
         ))}
       </div>
@@ -189,105 +335,38 @@ function UpcomingSchedule() {
   );
 }
 
-function TrainingMaterials({ currentMonth }) {
-  const getMonthMaterials = (month) => {
-    const materials = {
-      1: [
-        {
-          title: "Pengenalan Science Society & Sistem Bimbel",
-          description:
-            "Memahami visi, misi, dan nilai-nilai Science Society sebagai lembaga bimbingan belajar.",
-          progress: 100,
-        },
-        {
-          title: "Analisis Kisi-kisi UTBK dan Tes Kedinasan",
-          description:
-            "Mempelajari struktur dan pola soal UTBK serta tes kedinasan untuk strategi mengajar yang tepat.",
-          progress: 80,
-        },
-        {
-          title: "Teknik Mengajar Matematika untuk UTBK",
-          description:
-            "Metode efektif dalam mengajarkan konsep matematika untuk persiapan UTBK.",
-          progress: 60,
-        },
-        {
-          title: "Strategi Pembahasan Soal Fisika dan Kimia",
-          description:
-            "Teknik pembahasan soal fisika dan kimia yang mudah dipahami siswa.",
-          progress: 30,
-        },
-      ],
-      2: [
-        {
-          title: "Metode Drill dan Latihan Soal Intensif",
-          description:
-            "Teknik drill yang efektif untuk meningkatkan kemampuan siswa dalam mengerjakan soal.",
-          progress: 70,
-        },
-        {
-          title: "Teknik Motivasi Siswa Bimbel",
-          description:
-            "Cara memotivasi dan mempertahankan semangat belajar siswa selama persiapan ujian.",
-          progress: 50,
-        },
-        {
-          title: "Analisis Kesalahan Umum Siswa UTBK",
-          description:
-            "Mengidentifikasi dan mengatasi kesalahan yang sering dilakukan siswa dalam UTBK.",
-          progress: 20,
-        },
-        {
-          title: "Manajemen Waktu dalam Tes",
-          description:
-            "Mengajarkan siswa strategi manajemen waktu yang efektif saat mengerjakan tes.",
-          progress: 10,
-        },
-      ],
-      3: [
-        {
-          title: "Simulasi Mengajar UTBK",
-          description:
-            "Praktik mengajar langsung dengan feedback dari mentor senior dan rekan sejawat.",
-          progress: 0,
-        },
-        {
-          title: "Evaluasi Progress Siswa Bimbel",
-          description:
-            "Metode evaluasi dan tracking progress siswa selama mengikuti bimbingan belajar.",
-          progress: 0,
-        },
-        {
-          title: "Teknik Try Out dan Pembahasan",
-          description:
-            "Cara merancang try out yang efektif dan teknik pembahasan yang komprehensif.",
-          progress: 0,
-        },
-        {
-          title: "Sertifikasi Tutor Science Society",
-          description:
-            "Persiapan ujian sertifikasi dan proses menjadi tutor resmi Science Society.",
-          progress: 0,
-        },
-      ],
-    };
-    return materials[month] || [];
-  };
-
+function ContinuousLearning() {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-      <h2 className="text-xl font-semibold text-[#1c2953] mb-4">
-        Materi Pelatihan Bulan {currentMonth}
+    <div className="bg-gradient-to-r from-[#1c2953] to-[#2d3a6b] text-white rounded-lg p-8 mb-8">
+      <h2 className="text-2xl font-bold mb-4">
+        💡 Continuous Learning Program
       </h2>
-      <div className="space-y-4">
-        {getMonthMaterials(currentMonth).map((material, index) => (
-          <MaterialCard
-            key={index}
-            title={material.title}
-            description={material.description}
-            progress={material.progress}
-          />
-        ))}
+      <p className="text-lg mb-6 opacity-90">
+        Setelah menyelesaikan program pelatihan 12 minggu, Anda akan mendapat
+        akses ke program pembelajaran berkelanjutan
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+          <div className="text-2xl mb-2">📊</div>
+          <div className="font-semibold mb-1">Monthly Workshop</div>
+          <div className="text-sm opacity-75">
+            Update metode & materi terbaru setiap bulan
+          </div>
+        </div>
+        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+          <div className="text-2xl mb-2">🎓</div>
+          <div className="font-semibold mb-1">Certification Program</div>
+          <div className="text-sm opacity-75">
+            Sertifikasi nasional & internasional
+          </div>
+        </div>
+        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+          <div className="text-2xl mb-2">🚀</div>
+          <div className="font-semibold mb-1">Leadership Training</div>
+          <div className="text-sm opacity-75">
+            Persiapan jenjang karir selanjutnya
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -306,16 +385,16 @@ function CommunityCard() {
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
       <h2 className="text-xl font-semibold text-[#1c2953] mb-4">
-        Komunitas Tutor UTBK & Kedinasan
+        👥 Komunitas Mentor Trainee
       </h2>
       <p className="text-gray-600 mb-4">
-        Bergabunglah dengan komunitas mentor Science Society untuk berbagi
-        pengalaman dan mendapatkan dukungan.
+        Bergabunglah dengan komunitas mentor trainee untuk berbagi pengalaman
+        dan saling mendukung selama pelatihan.
       </p>
       <div className="flex flex-wrap gap-2 mb-4">
-        <span className="badge badge-outline">30 Tutor Aktif</span>
-        <span className="badge badge-outline">15 Diskusi Soal</span>
-        <span className="badge badge-outline">8 Try Out Mendatang</span>
+        <span className="badge badge-outline">50+ Trainee Aktif</span>
+        <span className="badge badge-outline">Daily Discussion</span>
+        <span className="badge badge-outline">Peer Support</span>
       </div>
       <button className="btn btn-primary w-full">Gabung Grup WhatsApp</button>
     </div>
@@ -326,10 +405,11 @@ function SupportCard() {
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
       <h2 className="text-xl font-semibold text-[#1c2953] mb-4">
-        Dukungan Pelatihan
+        🆘 Dukungan Pelatihan
       </h2>
       <p className="text-gray-600 mb-4">
-        Butuh bantuan selama program pelatihan? Tim kami siap membantu Anda.
+        Tim training support kami siap membantu Anda 24/7 selama program
+        pelatihan berlangsung.
       </p>
       <div className="space-y-3">
         <ContactItem
@@ -341,7 +421,7 @@ function SupportCard() {
               d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
             />
           }
-          text="support@sciencesociety.id"
+          text="training@sciencesociety.id"
         />
         <ContactItem
           icon={
@@ -352,7 +432,7 @@ function SupportCard() {
               d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
             />
           }
-          text="+62 812-3456-7890"
+          text="+62 812-3456-7890 (Training Hotline)"
         />
       </div>
     </div>
@@ -373,20 +453,37 @@ function ContactItem({ icon, text }) {
           {icon}
         </svg>
       </div>
-      <span>{text}</span>
+      <span className="text-sm">{text}</span>
     </div>
   );
 }
 
-function LatihCard({ title, date, time, instructor, location, type }) {
+function TrainingCard({
+  title,
+  date,
+  time,
+  instructor,
+  location,
+  type,
+  phase,
+}) {
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
-      <div
-        className={`p-2 text-white text-center ${
-          type === "Online" ? "bg-blue-500" : "bg-green-500"
-        }`}
-      >
-        {type}
+      <div className="flex">
+        <div
+          className={`p-2 text-white text-center flex-1 ${
+            type === "Online"
+              ? "bg-blue-500"
+              : type === "Offline"
+              ? "bg-green-500"
+              : "bg-purple-500"
+          }`}
+        >
+          {type}
+        </div>
+        <div className="p-2 bg-[#1c2953] text-white text-center flex-1">
+          {phase}
+        </div>
       </div>
       <div className="p-5">
         <h3 className="font-bold text-lg mb-2">{title}</h3>
@@ -446,7 +543,7 @@ function LatihCard({ title, date, time, instructor, location, type }) {
         </div>
         <div className="mt-4">
           <button className="btn btn-sm btn-outline btn-primary w-full">
-            Lihat Detail
+            Daftar Sekarang
           </button>
         </div>
       </div>
@@ -471,22 +568,36 @@ function ScheduleItem({ icon, text }) {
   );
 }
 
-function MaterialCard({ title, description, progress }) {
+function MaterialCard({ title, description, progress, week }) {
   return (
     <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
       <div className="flex justify-between items-start mb-2">
-        <h3 className="font-medium">{title}</h3>
-        <span className="badge badge-primary">{progress}%</span>
+        <div className="flex-1">
+          <h3 className="font-medium">{title}</h3>
+          <span className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded mt-1 inline-block">
+            {week}
+          </span>
+        </div>
+        <span className="badge badge-primary ml-2">{progress}%</span>
       </div>
       <p className="text-sm text-gray-600 mb-3">{description}</p>
-      <div className="w-full bg-gray-200 rounded-full h-2.5">
+      <div className="w-full bg-gray-200 rounded-full h-2.5 mb-3">
         <div
-          className="bg-[#1c2953] h-2.5 rounded-full"
+          className="bg-[#1c2953] h-2.5 rounded-full transition-all duration-300"
           style={{ width: `${progress}%` }}
         ></div>
       </div>
-      <div className="mt-3 flex justify-end">
-        <button className="btn btn-xs">Lanjutkan</button>
+      <div className="flex justify-between items-center">
+        <span className="text-xs text-gray-500">
+          {progress === 100
+            ? "✅ Selesai"
+            : progress > 0
+            ? "🔄 Sedang Berlangsung"
+            : "⏳ Belum Dimulai"}
+        </span>
+        <button className="btn btn-xs btn-outline">
+          {progress === 100 ? "Review" : progress > 0 ? "Lanjutkan" : "Mulai"}
+        </button>
       </div>
     </div>
   );

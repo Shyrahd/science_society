@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function ManageSide() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -135,14 +136,16 @@ function SideBar() {
     <div className="relative flex h-screen w-full flex-col rounded-xl bg-gray-900 bg-clip-border p-4 text-gray-100 shadow-xl shadow-black/20">
       <div className="p-4 pt-10 md:pt-4 mb-2">
         <div className="flex items-center space-x-2">
-          <img
-            src="/logo_ss.png?height=24&width=24"
-            alt="Logo"
-            className="w-6 h-6"
-          />
-          <h5 className="font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-white">
-            Science Society HR
-          </h5>
+          <Link to="/Dashboard" className="flex">
+            <img
+              src="/logo_ss.png?height=24&width=24"
+              alt="Logo"
+              className="w-6 h-6 mr-3"
+            />
+            <h5 className="font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-white">
+              Science Society HR
+            </h5>
+          </Link>
         </div>
       </div>
       <nav className="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-gray-300">
@@ -198,7 +201,10 @@ function SideBar() {
           >
             <div className="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-400">
               <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-gray-300">
-                <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
+                <Link
+                  href="/"
+                  className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100"
+                >
                   <div className="grid mr-4 place-items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -217,7 +223,7 @@ function SideBar() {
                     </svg>
                   </div>
                   Overview
-                </button>
+                </Link>
                 <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
                   <div className="grid mr-4 place-items-center">
                     <svg
@@ -319,7 +325,10 @@ function SideBar() {
           >
             <div className="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-400">
               <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-gray-300">
-                <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
+                <Link
+                  to="/Pelamar"
+                  className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100"
+                >
                   <div className="grid mr-4 place-items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -338,85 +347,34 @@ function SideBar() {
                     </svg>
                   </div>
                   Applications
-                </button>
-                <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
-                  <div className="grid mr-4 place-items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="3"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                      className="w-5 h-3"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      ></path>
-                    </svg>
-                  </div>
-                  Interviews
-                </button>
+                </Link>
+                <Link to="/Interview">
+                  <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
+                    <div className="grid mr-4 place-items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="3"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                        className="w-5 h-3"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                        ></path>
+                      </svg>
+                    </div>
+                    Interviews
+                  </button>
+                </Link>
               </nav>
             </div>
           </div>
         </div>
         <div className="relative block w-full">
-          <div
-            role="button"
-            className="flex items-center w-full p-0 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100"
-          >
-            <button
-              type="button"
-              onClick={togglePerformance}
-              className="flex items-center justify-between w-full p-3 font-sans text-xl antialiased font-semibold leading-snug text-left transition-colors border-b-0 select-none border-b-gray-700 text-gray-300 hover:text-gray-100"
-            >
-              <div className="grid mr-4 place-items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  className="w-5 h-5"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
-                    clipRule="evenodd"
-                  />
-                  <path
-                    fillRule="evenodd"
-                    d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <p className="block mr-auto font-sans text-base antialiased font-normal leading-relaxed text-white">
-                Performance
-              </p>
-              <span className="ml-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                  className={`w-4 h-4 mx-auto transition-transform ${
-                    isPerformanceOpen ? "rotate-180" : ""
-                  }`}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  ></path>
-                </svg>
-              </span>
-            </button>
-          </div>
           <div
             className={`overflow-hidden transition-all duration-300 ${
               isPerformanceOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
@@ -468,25 +426,27 @@ function SideBar() {
             </div>
           </div>
         </div>
-        <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
-          <div className="grid mr-4 place-items-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-              className="w-5 h-5"
-            >
-              <path d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z" />
-            </svg>
-          </div>
-          Mentors Directory
-          <div className="grid ml-auto place-items-center justify-self-end">
-            <div className="relative grid items-center px-2 py-1 font-sans text-xs font-bold uppercase rounded-full select-none whitespace-nowrap bg-gray-600/50 text-gray-200">
-              <span className="">18</span>
+        <Link to="/Mentor">
+          <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
+            <div className="grid mr-4 place-items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+                className="w-5 h-5"
+              >
+                <path d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z" />
+              </svg>
             </div>
-          </div>
-        </button>
+            Mentors Directory
+            <div className="grid ml-auto place-items-center justify-self-end">
+              <div className="relative grid items-center px-2 py-1 font-sans text-xs font-bold uppercase rounded-full select-none whitespace-nowrap bg-gray-600/50 text-gray-200">
+                <span className="">10</span>
+              </div>
+            </div>
+          </button>
+        </Link>
         <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
           <div className="grid mr-4 place-items-center">
             <svg

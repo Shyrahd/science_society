@@ -12,6 +12,10 @@ import AdmProfile from "./management/AdmProfile";
 import LandPage from "./newUser/LandPage";
 import UserProfile from "./newUser/userProfile";
 import Pelatihan from "./newUser/Pelatihan";
+import DaftarAkun from "./newUser/DaftarAkun";
+import Pelamar from "./management/Pelamar";
+import Interview from "./management/Interview";
+import DaftarMentor from "./management/DaftarMentor";
 
 function App() {
   return (
@@ -23,10 +27,14 @@ function App() {
           <Route path="/Profil" element={<Profil />} />
           <Route path="/Lamar" element={<Lamar />} />
           <Route path="/Jadwal" element={<Jadwal />} />
+          <Route path="/Daftar" element={<DaftarAkun />} />
           <Route path="/LandPage" element={<LandPage />} />
           <Route path="/User" element={<UserProfile />} />
           <Route path="/Pelatihan" element={<Pelatihan />} />
           <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/Pelamar" element={<Pelamar />} />
+          <Route path="/Interview" element={<Interview />} />
+          <Route path="/Mentor" element={<DaftarMentor />} />
           <Route path="/AdmProfile" element={<AdmProfile />} />
           <Route path="*" element={<Notfound />} />
         </Routes>

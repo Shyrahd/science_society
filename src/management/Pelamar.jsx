@@ -1,0 +1,568 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import ManageSide from "./ManageSide";
+
+function Pelamar() {
+  return (
+    <div className="flex h-screen bg-gray-100">
+      <ManageSide />
+      <ListPelamar />
+    </div>
+  );
+}
+
+export default Pelamar;
+
+function ListPelamar() {
+  const [applicants, setApplicants] = useState([]);
+  const [filteredApplicants, setFilteredApplicants] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [sortBy, setSortBy] = useState("date");
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Mock data - in a real app, this would come from an API
+  useEffect(() => {
+    // Simulate API call
+    setTimeout(() => {
+      const mockApplicants = [
+        {
+          id: 1,
+          name: "Ahmad Rizki",
+          email: "ahmad.rizki@gmail.com",
+          phone: "081234567890",
+          education: "S1 Matematika UI",
+          applyDate: "2025-01-15",
+          status: "review",
+          subjects: ["Penalaran Matematika", "TPS"],
+          experience: "2 tahun",
+        },
+        {
+          id: 2,
+          name: "Siti Nurhaliza",
+          email: "siti.nurhaliza@gmail.com",
+          phone: "081234567891",
+          education: "S2 Kimia ITB",
+          applyDate: "2025-01-16",
+          status: "interview",
+          subjects: ["Literasi Bahasa Indonesia", "Penalaran Matematika"],
+          experience: "3 tahun",
+        },
+        {
+          id: 3,
+          name: "Budi Santoso",
+          email: "budi.santoso@gmail.com",
+          phone: "081234567892",
+          education: "S1 Fisika ITB",
+          applyDate: "2025-01-14",
+          status: "review",
+          subjects: ["TPS", "Penalaran Matematika"],
+          experience: "1 tahun",
+        },
+        {
+          id: 4,
+          name: "Dewi Lestari",
+          email: "dewi.lestari@gmail.com",
+          phone: "081234567893",
+          education: "S1 Bahasa Inggris UNAIR",
+          applyDate: "2025-01-13",
+          status: "accepted",
+          subjects: ["Literasi Bahasa Inggris", "TPS"],
+          experience: "4 tahun",
+        },
+        {
+          id: 5,
+          name: "Eko Prasetyo",
+          email: "eko.prasetyo@gmail.com",
+          phone: "081234567894",
+          education: "S1 Pendidikan Matematika UGM",
+          applyDate: "2025-01-12",
+          status: "review",
+          subjects: ["Penalaran Matematika", "TIU"],
+          experience: "2 tahun",
+        },
+        {
+          id: 6,
+          name: "Fitri Handayani",
+          email: "fitri.handayani@gmail.com",
+          phone: "081234567895",
+          education: "S2 Biologi ITB",
+          applyDate: "2025-01-17",
+          status: "review",
+          subjects: ["TWK", "TIU"],
+          experience: "5 tahun",
+        },
+        {
+          id: 7,
+          name: "Gunawan Wibisono",
+          email: "gunawan.wibisono@gmail.com",
+          phone: "081234567896",
+          education: "S1 Ekonomi UI",
+          applyDate: "2025-01-18",
+          status: "interview",
+          subjects: ["TKP", "TWK"],
+          experience: "3 tahun",
+        },
+        {
+          id: 8,
+          name: "Hani Pratiwi",
+          email: "hani.pratiwi@gmail.com",
+          phone: "081234567897",
+          education: "S1 Kimia ITS",
+          applyDate: "2025-01-19",
+          status: "review",
+          subjects: ["TIU", "TKP"],
+          experience: "1 tahun",
+        },
+        {
+          id: 9,
+          name: "Irfan Hakim",
+          email: "irfan.hakim@gmail.com",
+          phone: "081234567898",
+          education: "S1 Fisika USU",
+          applyDate: "2025-01-20",
+          status: "review",
+          subjects: ["Penalaran Matematika", "TPS"],
+          experience: "2 tahun",
+        },
+        {
+          id: 10,
+          name: "Joko Widodo",
+          email: "joko.widodo@gmail.com",
+          phone: "081234567899",
+          education: "S1 Teknik UNS",
+          applyDate: "2025-01-21",
+          status: "interview",
+          subjects: ["Penalaran Matematika", "TIU"],
+          experience: "6 tahun",
+        },
+        {
+          id: 11,
+          name: "Kartika Sari",
+          email: "kartika.sari@gmail.com",
+          phone: "081234567810",
+          education: "S2 Pendidikan UNY",
+          applyDate: "2025-01-22",
+          status: "review",
+          subjects: ["Literasi Bahasa Indonesia", "TWK"],
+          experience: "4 tahun",
+        },
+        {
+          id: 12,
+          name: "Lukman Hakim",
+          email: "lukman.hakim@gmail.com",
+          phone: "081234567811",
+          education: "S1 Matematika UNPAD",
+          applyDate: "2025-01-23",
+          status: "review",
+          subjects: ["Penalaran Matematika", "TIU"],
+          experience: "2 tahun",
+        },
+        {
+          id: 13,
+          name: "Maya Sari",
+          email: "maya.sari@gmail.com",
+          phone: "081234567812",
+          education: "S1 Sastra Indonesia UI",
+          applyDate: "2025-01-24",
+          status: "review",
+          subjects: ["Literasi Bahasa Indonesia", "TPS"],
+          experience: "3 tahun",
+        },
+        {
+          id: 14,
+          name: "Nanda Pratama",
+          email: "nanda.pratama@gmail.com",
+          phone: "081234567813",
+          education: "S1 Geografi UGM",
+          applyDate: "2025-01-25",
+          status: "interview",
+          subjects: ["TWK", "TKP"],
+          experience: "2 tahun",
+        },
+        {
+          id: 15,
+          name: "Olivia Putri",
+          email: "olivia.putri@gmail.com",
+          phone: "081234567814",
+          education: "S1 Psikologi UNPAD",
+          applyDate: "2025-01-26",
+          status: "review",
+          subjects: ["TKP", "TPS"],
+          experience: "1 tahun",
+        },
+      ];
+
+      setApplicants(mockApplicants);
+      setFilteredApplicants(mockApplicants);
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+
+  // Filter applicants based on search query
+  useEffect(() => {
+    let result = [...applicants];
+
+    // Filter by search query
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      result = result.filter(
+        (applicant) =>
+          applicant.name.toLowerCase().includes(query) ||
+          applicant.email.toLowerCase().includes(query) ||
+          applicant.education.toLowerCase().includes(query) ||
+          applicant.subjects.some((subject) =>
+            subject.toLowerCase().includes(query)
+          )
+      );
+    }
+
+    // Sort applicants
+    if (sortBy === "name") {
+      result.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === "date") {
+      result.sort((a, b) => new Date(b.applyDate) - new Date(a.applyDate));
+    } else if (sortBy === "status") {
+      const statusOrder = { interview: 1, review: 2, accepted: 3, rejected: 4 };
+      result.sort((a, b) => statusOrder[a.status] - statusOrder[b.status]);
+    }
+
+    setFilteredApplicants(result);
+  }, [applicants, searchQuery, sortBy]);
+
+  return (
+    <main className="flex-1 overflow-auto">
+      <div className="container mx-auto px-4 py-8">
+        <HeaderSection />
+        <FilterSection
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          sortBy={sortBy}
+          setSortBy={setSortBy}
+          totalApplicants={filteredApplicants.length}
+        />
+        {isLoading ? (
+          <LoadingState />
+        ) : filteredApplicants.length > 0 ? (
+          <ApplicantsList applicants={filteredApplicants} />
+        ) : (
+          <EmptyState searchQuery={searchQuery} />
+        )}
+      </div>
+    </main>
+  );
+}
+
+function HeaderSection() {
+  return (
+    <div className="mb-8">
+      <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        Daftar Pelamar Mentor
+      </h1>
+      <p className="text-gray-600">
+        Kelola dan pantau status pelamar mentor Science Society untuk program
+        SNBT, UTBK, dan Tes Kedinasan.
+      </p>
+    </div>
+  );
+}
+
+function FilterSection({
+  searchQuery,
+  setSearchQuery,
+  sortBy,
+  setSortBy,
+  totalApplicants,
+}) {
+  return (
+    <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <div className="flex-1">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Cari nama, email, pendidikan, atau mata pelajaran..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div>
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            >
+              <option value="date">Terbaru</option>
+              <option value="name">Nama (A-Z)</option>
+              <option value="status">Status</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div className="flex justify-between items-center">
+        <div className="text-sm text-gray-600">
+          Menampilkan <span className="font-semibold">{totalApplicants}</span>{" "}
+          pelamar
+        </div>
+        <div className="flex gap-2">
+          <button className="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 flex items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4 mr-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+              />
+            </svg>
+            Export
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ApplicantsList({ applicants }) {
+  return (
+    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="bg-gray-900 text-white p-4 flex justify-between items-center">
+        <div className="flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+          </svg>
+          <h2 className="text-xl font-semibold">Daftar Pelamar</h2>
+        </div>
+        <span className="bg-white text-gray-900 px-2 py-1 rounded text-sm font-medium">
+          {applicants.length} Pelamar
+        </span>
+      </div>
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead className="bg-gray-50">
+            <tr>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Nama
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Pendidikan
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Mata Pelajaran
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Pengalaman
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Tanggal Lamar
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Status
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Aksi
+              </th>
+            </tr>
+          </thead>
+          <tbody className="bg-white divide-y divide-gray-200">
+            {applicants.map((applicant) => (
+              <ApplicantRow key={applicant.id} applicant={applicant} />
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function ApplicantRow({ applicant }) {
+  const statusColors = {
+    review: "bg-yellow-100 text-yellow-800",
+    interview: "bg-blue-100 text-blue-800",
+    accepted: "bg-green-100 text-green-800",
+    rejected: "bg-red-100 text-red-800",
+  };
+
+  const statusLabels = {
+    review: "Sedang Direview",
+    interview: "Interview",
+    accepted: "Diterima",
+    rejected: "Ditolak",
+  };
+
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString("id-ID", options);
+  };
+
+  return (
+    <tr className="hover:bg-gray-50">
+      <td className="px-6 py-4 whitespace-nowrap">
+        <div className="font-medium text-gray-900">{applicant.name}</div>
+        <div className="text-sm text-gray-500">{applicant.email}</div>
+        <div className="text-sm text-gray-500">{applicant.phone}</div>
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+        {applicant.education}
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap">
+        <div className="flex flex-wrap gap-1">
+          {applicant.subjects.map((subject, index) => (
+            <span
+              key={index}
+              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+            >
+              {subject}
+            </span>
+          ))}
+        </div>
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+        {applicant.experience}
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+        {formatDate(applicant.applyDate)}
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap">
+        <span
+          className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+            statusColors[applicant.status]
+          }`}
+        >
+          {statusLabels[applicant.status]}
+        </span>
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+        <div className="flex gap-2">
+          <button className="text-blue-600 hover:text-blue-900 p-1 rounded">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+              />
+            </svg>
+          </button>
+          <button className="text-gray-600 hover:text-gray-900 p-1 rounded">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+              />
+            </svg>
+          </button>
+        </div>
+      </td>
+    </tr>
+  );
+}
+
+function LoadingState() {
+  return (
+    <div className="bg-white rounded-lg shadow-md p-12 text-center">
+      <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mb-4"></div>
+      <h3 className="text-lg font-semibold text-gray-700">
+        Memuat data pelamar...
+      </h3>
+      <p className="text-gray-500 mt-2">Mohon tunggu sebentar</p>
+    </div>
+  );
+}
+
+function EmptyState({ searchQuery }) {
+  return (
+    <div className="bg-white rounded-lg shadow-md p-12 text-center">
+      <div className="inline-block rounded-full bg-gray-100 p-6 mb-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-12 w-12 text-gray-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+      </div>
+      <h3 className="text-lg font-semibold text-gray-700">
+        Tidak ada pelamar ditemukan
+      </h3>
+      {searchQuery ? (
+        <p className="text-gray-500 mt-2">
+          Tidak ada hasil untuk pencarian "{searchQuery}". Coba dengan kata
+          kunci lain.
+        </p>
+      ) : (
+        <p className="text-gray-500 mt-2">
+          Belum ada pelamar yang terdaftar untuk kriteria ini.
+        </p>
+      )}
+    </div>
+  );
+}
+
+export { Pelamar };

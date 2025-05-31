@@ -240,7 +240,7 @@ function FeatureItem({ icon, text }) {
 function Newbtn() {
   return (
     <Link
-      to="/LandPage"
+      to="/Daftar"
       className="btn w-full bg-gradient-to-r from-green-400 to-green-600 text-white border-0 hover:from-green-500 hover:to-green-700 font-bold font-montserrat transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
     >
       Daftar Mentor
