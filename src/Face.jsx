@@ -15,6 +15,7 @@ function UserLog() {
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Header */}
       <div className="text-center py-12">
+        <img src="/logo_ss.png" alt="Science Society" className="mx-auto" />
         <h1 className="text-4xl font-bold text-[#1c2953] mb-4">
           Science Society
         </h1>
