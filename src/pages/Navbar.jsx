@@ -116,16 +116,16 @@ function NotifBar() {
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-1 sm:gap-2">
       {/* Inbox Dropdown */}
       <div className="relative">
         <button
           onClick={() => toggleDropdown("inbox")}
-          className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#263761] transition-colors duration-200"
+          className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-2 rounded-lg hover:bg-[#263761] transition-colors duration-200"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
+            className="h-4 w-4 sm:h-5 sm:w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -134,62 +134,64 @@ function NotifBar() {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0H4m16 0l-2-2m-14 2l2-2"
+              d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2-2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0H4m16 0l-2-2m-14 2l2-2"
             />
           </svg>
-          <span className="hidden sm:inline">Kotak Masuk</span>
-          <span className="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full min-w-[20px] text-center">
+          <span className="hidden md:inline text-sm">Kotak Masuk</span>
+          <span className="bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full min-w-[18px] text-center text-[10px] sm:text-xs sm:px-2 sm:min-w-[20px]">
             5
           </span>
         </button>
         {activeDropdown === "inbox" && (
           <div
             ref={(el) => (dropdownRefs.current.inbox = el)}
-            className="absolute top-full right-0 mt-2 w-80 bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
+            className="absolute top-full right-0 mt-2 w-72 sm:w-80 bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
           >
-            <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-4">
-              <h3 className="font-semibold text-lg text-white">Pesan Masuk</h3>
-              <p className="text-blue-100 text-sm">
+            <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-3 sm:p-4">
+              <h3 className="font-semibold text-base sm:text-lg text-white">
+                Pesan Masuk
+              </h3>
+              <p className="text-blue-100 text-xs sm:text-sm">
                 Anda memiliki 2 pesan belum dibaca
               </p>
             </div>
             <div className="max-h-80 overflow-y-auto">
-              <div className="p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors">
+              <div className="p-3 sm:p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors">
                 <div className="flex items-start gap-3">
                   <div className="w-3 h-3 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></div>
                   <div className="flex-1 min-w-0">
-                    <p className="font-medium text-gray-900 truncate">
+                    <p className="font-medium text-gray-900 truncate text-sm">
                       Pertanyaan dari peserta kursus
                     </p>
-                    <p className="text-sm text-gray-600 mt-1">
+                    <p className="text-xs sm:text-sm text-gray-600 mt-1">
                       Ahmad bertanya tentang soal latihan PU nomor 15
                     </p>
                     <p className="text-xs text-gray-400 mt-2">1 jam lalu</p>
                   </div>
                 </div>
               </div>
-              <div className="p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors">
+              <div className="p-3 sm:p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors">
                 <div className="flex items-start gap-3">
                   <div className="w-3 h-3 bg-green-500 rounded-full mt-1.5 flex-shrink-0"></div>
                   <div className="flex-1 min-w-0">
-                    <p className="font-medium text-gray-900 truncate">
+                    <p className="font-medium text-gray-900 truncate text-sm">
                       Sesi mentoring dijadwalkan
                     </p>
-                    <p className="text-sm text-gray-600 mt-1">
+                    <p className="text-xs sm:text-sm text-gray-600 mt-1">
                       Sesi mentoring grup besok pukul 14.00
                     </p>
                     <p className="text-xs text-gray-400 mt-2">3 jam lalu</p>
                   </div>
                 </div>
               </div>
-              <div className="p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors">
+              <div className="p-3 sm:p-4 border-b border-gray-100 hover:bg-gray-50 cursor-pointer transition-colors">
                 <div className="flex items-start gap-3">
                   <div className="w-3 h-3 bg-yellow-500 rounded-full mt-1.5 flex-shrink-0"></div>
                   <div className="flex-1 min-w-0">
-                    <p className="font-medium text-gray-900 truncate">
+                    <p className="font-medium text-gray-900 truncate text-sm">
                       Tugas peserta sudah dikumpulkan
                     </p>
-                    <p className="text-sm text-gray-600 mt-1">
+                    <p className="text-xs sm:text-sm text-gray-600 mt-1">
                       5 peserta telah mengumpulkan latihan soal PU
                     </p>
                     <p className="text-xs text-gray-400 mt-2">5 jam lalu</p>
@@ -197,8 +199,8 @@ function NotifBar() {
                 </div>
               </div>
             </div>
-            <div className="p-4 bg-gray-50 border-t border-gray-200">
-              <button className="w-full text-center text-blue-600 hover:text-blue-700 font-medium py-2 hover:bg-blue-50 rounded-lg transition-colors">
+            <div className="p-3 sm:p-4 bg-gray-50 border-t border-gray-200">
+              <button className="w-full text-center text-blue-600 hover:text-blue-700 font-medium py-2 hover:bg-blue-50 rounded-lg transition-colors text-sm">
                 Lihat Semua Pesan
               </button>
             </div>
@@ -210,11 +212,11 @@ function NotifBar() {
       <div className="relative">
         <button
           onClick={() => toggleDropdown("updates")}
-          className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#263761] transition-colors duration-200"
+          className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-2 rounded-lg hover:bg-[#263761] transition-colors duration-200"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
+            className="h-4 w-4 sm:h-5 sm:w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -226,30 +228,30 @@ function NotifBar() {
               d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <span className="hidden sm:inline">Pembaruan</span>
-          <span className="bg-orange-500 text-white text-xs px-2 py-0.5 rounded-full">
+          <span className="hidden md:inline text-sm">Pembaruan</span>
+          <span className="bg-orange-500 text-white text-xs px-1.5 py-0.5 rounded-full text-[10px] sm:text-xs sm:px-2">
             BARU
           </span>
         </button>
         {activeDropdown === "updates" && (
           <div
             ref={(el) => (dropdownRefs.current.updates = el)}
-            className="absolute top-full right-0 mt-2 w-80 bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
+            className="absolute top-full right-0 mt-2 w-72 sm:w-80 bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
           >
-            <div className="bg-gradient-to-r from-orange-600 to-orange-700 p-4">
-              <h3 className="font-semibold text-lg text-white">
+            <div className="bg-gradient-to-r from-orange-600 to-orange-700 p-3 sm:p-4">
+              <h3 className="font-semibold text-base sm:text-lg text-white">
                 Pembaruan Kursus
               </h3>
-              <p className="text-orange-100 text-sm">
+              <p className="text-orange-100 text-xs sm:text-sm">
                 Update terbaru untuk mentor
               </p>
             </div>
             <div className="max-h-80 overflow-y-auto">
-              <div className="p-4 border-b border-gray-100 hover:bg-gray-50 transition-colors">
+              <div className="p-3 sm:p-4 border-b border-gray-100 hover:bg-gray-50 transition-colors">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                     <svg
-                      className="h-5 w-5 text-blue-600"
+                      className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -263,75 +265,19 @@ function NotifBar() {
                     </svg>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="font-medium text-gray-900">
+                    <p className="font-medium text-gray-900 text-sm">
                       Materi PU baru ditambahkan
                     </p>
-                    <p className="text-sm text-gray-600 mt-1">
+                    <p className="text-xs sm:text-sm text-gray-600 mt-1">
                       Modul latihan soal analogi verbal tersedia
                     </p>
                     <p className="text-xs text-gray-400 mt-2">Baru saja</p>
                   </div>
                 </div>
               </div>
-              <div className="p-4 border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg
-                      className="h-5 w-5 text-green-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="font-medium text-gray-900">
-                      Sistem penilaian diperbarui
-                    </p>
-                    <p className="text-sm text-gray-600 mt-1">
-                      Fitur feedback otomatis untuk peserta kursus
-                    </p>
-                    <p className="text-xs text-gray-400 mt-2">2 jam lalu</p>
-                  </div>
-                </div>
-              </div>
-              <div className="p-4 border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg
-                      className="h-5 w-5 text-purple-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="font-medium text-gray-900">
-                      Forum diskusi mentor
-                    </p>
-                    <p className="text-sm text-gray-600 mt-1">
-                      Platform baru untuk berbagi tips mengajar
-                    </p>
-                    <p className="text-xs text-gray-400 mt-2">1 hari lalu</p>
-                  </div>
-                </div>
-              </div>
             </div>
-            <div className="p-4 bg-gray-50 border-t border-gray-200">
-              <button className="w-full text-center text-orange-600 hover:text-orange-700 font-medium py-2 hover:bg-orange-50 rounded-lg transition-colors">
+            <div className="p-3 sm:p-4 bg-gray-50 border-t border-gray-200">
+              <button className="w-full text-center text-orange-600 hover:text-orange-700 font-medium py-2 hover:bg-orange-50 rounded-lg transition-colors text-sm">
                 Lihat Semua Pembaruan
               </button>
             </div>
@@ -343,11 +289,11 @@ function NotifBar() {
       <div className="relative">
         <button
           onClick={() => toggleDropdown("stats")}
-          className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-[#263761] transition-colors duration-200"
+          className="flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-2 rounded-lg hover:bg-[#263761] transition-colors duration-200"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
+            className="h-4 w-4 sm:h-5 sm:w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -356,21 +302,21 @@ function NotifBar() {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
             />
           </svg>
-          <span className="hidden sm:inline">Statistik</span>
+          <span className="hidden md:inline text-sm">Statistik</span>
         </button>
         {activeDropdown === "stats" && (
           <div
             ref={(el) => (dropdownRefs.current.stats = el)}
-            className="absolute top-full right-0 mt-2 w-80 bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
+            className="absolute top-full right-0 mt-2 w-72 sm:w-80 bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
           >
-            <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-4">
+            <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-3 sm:p-4">
               <div className="flex items-center gap-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 text-white flex-shrink-0"
+                  className="h-5 w-5 sm:h-6 sm:w-6 text-white flex-shrink-0"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -383,19 +329,19 @@ function NotifBar() {
                   />
                 </svg>
                 <div>
-                  <h3 className="font-semibold text-lg text-white">
+                  <h3 className="font-semibold text-base sm:text-lg text-white">
                     Statistik Mentoring
                   </h3>
-                  <p className="text-purple-100 text-sm">
+                  <p className="text-purple-100 text-xs sm:text-sm">
                     Kinerja sebagai mentor PU
                   </p>
                 </div>
               </div>
             </div>
-            <div className="p-6 space-y-6">
+            <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-700 font-medium">
+                  <span className="text-gray-700 font-medium text-sm">
                     Peserta Dibimbing
                   </span>
                   <span className="font-bold text-green-600">24</span>
@@ -410,7 +356,7 @@ function NotifBar() {
 
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-gray-700 font-medium">
+                  <span className="text-gray-700 font-medium text-sm">
                     Tingkat Kehadiran
                   </span>
                   <span className="font-bold text-blue-600">92%</span>
@@ -423,23 +369,27 @@ function NotifBar() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg">
-                  <p className="text-3xl font-bold text-blue-700">120</p>
-                  <p className="text-sm text-blue-600 font-medium">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg">
+                  <p className="text-2xl sm:text-3xl font-bold text-blue-700">
+                    120
+                  </p>
+                  <p className="text-xs sm:text-sm text-blue-600 font-medium">
                     Jam Mentoring
                   </p>
                 </div>
-                <div className="text-center p-4 bg-gradient-to-br from-green-50 to-green-100 rounded-lg">
-                  <p className="text-3xl font-bold text-green-700">8</p>
-                  <p className="text-sm text-green-600 font-medium">
+                <div className="text-center p-3 sm:p-4 bg-gradient-to-br from-green-50 to-green-100 rounded-lg">
+                  <p className="text-2xl sm:text-3xl font-bold text-green-700">
+                    8
+                  </p>
+                  <p className="text-xs sm:text-sm text-green-600 font-medium">
                     Sesi Grup
                   </p>
                 </div>
               </div>
             </div>
-            <div className="p-4 bg-gray-50 border-t border-gray-200">
-              <button className="w-full text-center text-purple-600 hover:text-purple-700 font-medium py-2 hover:bg-purple-50 rounded-lg transition-colors">
+            <div className="p-3 sm:p-4 bg-gray-50 border-t border-gray-200">
+              <button className="w-full text-center text-purple-600 hover:text-purple-700 font-medium py-2 hover:bg-purple-50 rounded-lg transition-colors text-sm">
                 Lihat Statistik Detail
               </button>
             </div>

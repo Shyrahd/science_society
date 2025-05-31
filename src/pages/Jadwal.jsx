@@ -20,7 +20,7 @@ function Pelatihan() {
       {
         id: 1,
         day: "Selasa",
-        date: "27 Mei 2024",
+        date: "27 Mei 2025",
         sessions: [
           {
             time: "08:00 - 10:00",
@@ -43,7 +43,7 @@ function Pelatihan() {
       {
         id: 2,
         day: "Rabu",
-        date: "28 Mei 2024",
+        date: "28 Mei 2025",
         sessions: [
           {
             time: "09:00 - 11:00",
@@ -66,7 +66,7 @@ function Pelatihan() {
       {
         id: 3,
         day: "Kamis",
-        date: "29 Mei 2024",
+        date: "29 Mei 2025",
         sessions: [
           {
             time: "08:00 - 10:00",
@@ -89,7 +89,7 @@ function Pelatihan() {
       {
         id: 4,
         day: "Jumat",
-        date: "30 Mei 2024",
+        date: "30 Mei 2025",
         sessions: [
           {
             time: "10:00 - 12:00",
@@ -112,7 +112,7 @@ function Pelatihan() {
       {
         id: 5,
         day: "Sabtu",
-        date: "31 Mei 2024",
+        date: "31 Mei 2025",
         sessions: [
           {
             time: "08:00 - 10:00",

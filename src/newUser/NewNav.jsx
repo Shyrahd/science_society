@@ -40,7 +40,12 @@ function NewNav() {
               </li>
               <li>
                 <Link to="/User" className="font-bold font-montserrat">
-                  Profile
+                  Profil
+                </Link>
+              </li>
+              <li>
+                <Link to="/Pelatihan" className="font-bold font-montserrat">
+                  Pelatihan
                 </Link>
               </li>
               <li>
@@ -65,7 +70,7 @@ function NewNav() {
             </li>
             <li>
               <Link to="/User" className="font-bold font-montserrat">
-                Profile
+                Profil
               </Link>
             </li>
             <li>

@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Navbar from "./Navbar";
 import Footerr from "./Footerr";
+import { Link } from "react-router-dom";
 
 function Homepage() {
   const scheduleRef = useRef(null);
@@ -135,15 +136,15 @@ function NewsSection() {
       title: "Pembukaan Kelas Intensif UTBK",
       date: "16 Januari 2025",
       content:
-        "Bimbel Excellence membuka kelas intensif UTBK dengan metode pembelajaran terbaru dan try out berkala setiap minggu.",
+        "Bimbel Science Society membuka kelas intensif UTBK dengan metode pembelajaran terbaru dan try out berkala setiap minggu.",
       type: "announcement",
       urgent: true,
     },
     {
-      title: "Prestasi Siswa Bimbel Excellence",
+      title: "Prestasi Siswa Bimbel Science Society",
       date: "14 Januari 2025",
       content:
-        "85% siswa bimbel Excellence berhasil lolos PTN favorit tahun 2024. Tertinggi di antara bimbel se-Jakarta.",
+        "85% siswa bimbel Science Society berhasil lolos PTN favorit tahun 2025. Tertinggi di antara bimbel se-Jakarta.",
       type: "achievement",
       urgent: false,
     },
@@ -159,7 +160,7 @@ function NewsSection() {
       title: "Fasilitas Baru: Lab Komputer",
       date: "9 Januari 2025",
       content:
-        "Bimbel Excellence menambah fasilitas lab komputer dengan 50 unit PC untuk simulasi UTBK berbasis komputer.",
+        "Bimbel Science Society menambah fasilitas lab komputer dengan 50 unit PC untuk simulasi UTBK berbasis komputer.",
       type: "facility",
       urgent: false,
     },
@@ -236,7 +237,7 @@ function NewsSection() {
               }`}
               onClick={() => setActiveTab("bimbel")}
             >
-              🎯 Bimbel Excellence
+              🎯 Bimbel Science Society
             </button>
           </div>
         </div>
@@ -298,49 +299,42 @@ const ScheduleSection = ({ ref }) => {
   const weeklySchedule = [
     {
       day: "Selasa",
-      date: "27 Mei 2024",
+      date: "27 Mei 2025",
       sessions: 2,
       hours: "08:00 - 16:00",
       topics: ["Logika Matematika", "Penalaran Verbal"],
     },
     {
       day: "Rabu",
-      date: "28 Mei 2024",
+      date: "28 Mei 2025",
       sessions: 2,
       hours: "09:00 - 17:00",
       topics: ["Analisis Data", "Problem Solving"],
     },
     {
       day: "Kamis",
-      date: "29 Mei 2024",
+      date: "29 Mei 2025",
       sessions: 2,
       hours: "08:00 - 15:00",
       topics: ["Penalaran Kuantitatif", "Simulasi Ujian"],
     },
     {
       day: "Jumat",
-      date: "30 Mei 2024",
+      date: "30 Mei 2025",
       sessions: 2,
       hours: "10:00 - 18:00",
       topics: ["Penalaran Figural", "Review & Pembahasan"],
     },
     {
       day: "Sabtu",
-      date: "31 Mei 2024",
+      date: "31 Mei 2025",
       sessions: 2,
       hours: "08:00 - 16:00",
       topics: ["Strategi Pengerjaan", "Bimbingan Personal"],
     },
     {
-      day: "Minggu",
-      date: "1 Juni 2024",
-      sessions: 1,
-      hours: "09:00 - 11:00",
-      topics: ["Try Out UTBK"],
-    },
-    {
       day: "Senin",
-      date: "2 Juni 2024",
+      date: "2 Juni 2025",
       sessions: 0,
       hours: "Libur",
       topics: [],
@@ -365,14 +359,7 @@ const ScheduleSection = ({ ref }) => {
             <div className="card-body">
               <h3 className="card-title text-2xl mb-6 text-blue-800">
                 📅 Jadwal Hari Ini
-                <span className="badge badge-primary">
-                  {new Date().toLocaleDateString("id-ID", {
-                    weekday: "long",
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </span>
+                <span className="badge badge-primary">Selasa, 27 Mei 2025</span>
               </h3>
 
               <div className="space-y-4">
@@ -405,9 +392,11 @@ const ScheduleSection = ({ ref }) => {
               </div>
 
               <div className="card-actions justify-end mt-6">
-                <button className="btn btn-primary">
-                  Lihat Detail Lengkap
-                </button>
+                <Link to="/Jadwal">
+                  <button className="btn btn-primary">
+                    Lihat Detail Lengkap
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -453,12 +442,12 @@ const ScheduleSection = ({ ref }) => {
               <div className="stats stats-vertical lg:stats-horizontal shadow mt-6">
                 <div className="stat">
                   <div className="stat-title">Total Sesi</div>
-                  <div className="stat-value text-primary">11</div>
+                  <div className="stat-value text-primary">10</div>
                   <div className="stat-desc">per minggu</div>
                 </div>
                 <div className="stat">
                   <div className="stat-title">Jam Mengajar</div>
-                  <div className="stat-value text-secondary">22</div>
+                  <div className="stat-value text-secondary">20</div>
                   <div className="stat-desc">jam per minggu</div>
                 </div>
               </div>
@@ -469,15 +458,15 @@ const ScheduleSection = ({ ref }) => {
         {/* Weekly Summary Stats */}
         <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="bg-white rounded-lg shadow p-6 text-center">
-            <div className="text-3xl font-bold text-blue-600">11</div>
+            <div className="text-3xl font-bold text-blue-600">10</div>
             <div className="text-gray-600">Sesi Minggu Ini</div>
           </div>
           <div className="bg-white rounded-lg shadow p-6 text-center">
-            <div className="text-3xl font-bold text-green-600">248</div>
+            <div className="text-3xl font-bold text-green-600">25</div>
             <div className="text-gray-600">Total Siswa</div>
           </div>
           <div className="bg-white rounded-lg shadow p-6 text-center">
-            <div className="text-3xl font-bold text-purple-600">22</div>
+            <div className="text-3xl font-bold text-purple-600">20</div>
             <div className="text-gray-600">Jam Mengajar</div>
           </div>
           <div className="bg-white rounded-lg shadow p-6 text-center">
@@ -493,9 +482,9 @@ const ScheduleSection = ({ ref }) => {
 function StatsSection() {
   const stats = [
     {
-      title: "Siswa Aktif",
+      title: "Siswa Dimentoring",
       value: "248",
-      description: "siswa dalam bimbingan",
+      description: "siswa yang sudah dibimbing",
       icon: "👥",
       color: "text-blue-600",
     },
@@ -515,7 +504,7 @@ function StatsSection() {
     },
     {
       title: "Pengalaman",
-      value: "5+",
+      value: "2",
       description: "tahun mengajar",
       icon: "⭐",
       color: "text-yellow-600",
@@ -565,7 +554,9 @@ function StatsSection() {
                   <div className="text-lg font-semibold">
                     Pengajar Terbaik 2024
                   </div>
-                  <div className="text-sm opacity-80">Bimbel Excellence</div>
+                  <div className="text-sm opacity-80">
+                    Bimbel Science Society
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-lg font-semibold">
