@@ -149,25 +149,25 @@ function SideBar() {
         </div>
       </div>
       <nav className="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-gray-300">
-        <Link
-          to="/Dashboard"
-          className="btn w-full bg-gradient-to-r from-purple-500 to-purple-700 text-white border-0 hover:from-purple-600 hover:to-purple-800 font-bold font-montserrat transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-        >
-          Panel Admin
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 ml-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-            />
-          </svg>
+        <Link to="/Dashboard"
+          className="flex items-center w-full p-3 leading-tight transition-all
+          rounded-lg outline-none text-start hover:bg-gray-700
+          hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700
+          focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700
+          active:bg-opacity-80 active:text-gray-100 cursor-pointer" >
+          <div className="grid mr-4 place-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+              className="w-5 h-5"
+            >
+              <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
+              <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
+            </svg>
+          </div>
+          Dashboard
         </Link>
         <div className="relative block w-full">
           <div
