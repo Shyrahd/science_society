@@ -1,5 +1,6 @@
 "use client";
 
+import { Link } from "react-router-dom";
 import ManageSide from "./ManageSide";
 import TopBar from "./TopBar";
 
@@ -152,8 +153,8 @@ function HomeDash() {
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-lg font-semibold mb-2">Total Pelamar</h3>
-              <p className="text-3xl font-bold">247</p>
-              <p className="text-blue-200 text-sm mt-1">+12 bulan ini</p>
+              <p className="text-3xl font-bold">32</p>
+              <p className="text-blue-200 text-sm mt-1">1 bulan ini</p>
             </div>
             <div className="w-12 h-12 flex items-center justify-center text-blue-200 text-2xl">
               👥
@@ -169,8 +170,8 @@ function HomeDash() {
           <div className="flex items-center justify-between">
             <div>
               <h3 className="text-lg font-semibold mb-2">Interview</h3>
-              <p className="text-3xl font-bold">89</p>
-              <p className="text-green-200 text-sm mt-1">Menunggu jadwal</p>
+              <p className="text-3xl font-bold">3</p>
+              <p className="text-green-200 text-sm mt-1">Menunggu Konfirmasi</p>
             </div>
             <div className="w-12 h-12 flex items-center justify-center text-green-200 text-2xl">
               🤝
@@ -185,8 +186,8 @@ function HomeDash() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-lg font-semibold mb-2">Dalam Aktif</h3>
-              <p className="text-3xl font-bold">34</p>
+              <h3 className="text-lg font-semibold mb-2">Dalam Pelatihan</h3>
+              <p className="text-3xl font-bold">1</p>
               <p className="text-orange-200 text-sm mt-1">Mentor baru</p>
             </div>
             <div className="w-12 h-12 flex items-center justify-center text-orange-200 text-2xl">
@@ -215,9 +216,9 @@ function HomeDash() {
 
       {/* Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div
-          className="bg-gray-800 rounded-xl p-6 cursor-pointer hover:bg-gray-700 transition-colors duration-200"
-          onClick={() => handleCardClick("jadwal-interview")}
+        <Link
+          to="/Interview"
+          className="bg-gray-800 rounded-xl p-6 cursor-pointer hover:bg-gray-700 transition-colors duration-200 block"
         >
           <div className="flex items-center space-x-4">
             <div className="w-10 h-10 flex items-center justify-center text-blue-400 text-xl">
@@ -225,12 +226,10 @@ function HomeDash() {
             </div>
             <div>
               <h3 className="text-white font-semibold">Jadwal Interview</h3>
-              <p className="text-gray-400 text-sm">
-                Atur jadwal interview pelamar
-              </p>
+              <p className="text-gray-400 text-sm">Lihat Daftar Interview</p>
             </div>
           </div>
-        </div>
+        </Link>
 
         <div
           className="bg-gray-800 rounded-xl p-6 cursor-pointer hover:bg-gray-700 transition-colors duration-200"
