@@ -269,6 +269,28 @@ function SideBar() {
                     Interviews
                   </button>
                 </Link>
+                <Link to="/TesLanjutan">
+                  <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
+                    <div className="grid mr-4 place-items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="3"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                        className="w-5 h-3"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                        ></path>
+                      </svg>
+                    </div>
+                    Advanced Test
+                  </button>
+                </Link>
               </nav>
             </div>
           </div>
@@ -346,7 +368,9 @@ function SideBar() {
             </div>
           </button>
         </Link>
-        <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
+        <button 
+        onClick={() => (window.location.href = "/AdmProfile")}
+        className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
           <div className="grid mr-4 place-items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"

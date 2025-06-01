@@ -29,7 +29,7 @@ function MentorCard() {
   const mentors = [
     {
       id: 1,
-      name: "Dr. Ahmad Wijaya, S.Pd., M.Pd",
+      name: "Dr. M. Ariel Khamal, S.Pd., M.Pd",
       education: "S3 Pendidikan Matematika - UGM",
       experience: "8 tahun",
       rating: 4.9,
@@ -38,7 +38,7 @@ function MentorCard() {
     },
     {
       id: 2,
-      name: "Sari Indrawati, S.H., M.H",
+      name: "R.M Amir Arrizki, S.H., M.H",
       education: "S2 Hukum Tata Negara - UI",
       experience: "6 tahun",
       rating: 4.8,

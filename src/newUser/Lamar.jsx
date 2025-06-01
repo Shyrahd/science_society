@@ -44,7 +44,7 @@ function HeaderSection() {
       </Link>
 
       <h1 className="text-4xl font-bold text-[#1c2953] mb-4">
-        Formulir Pendaftaran Guru
+        Formulir Pendaftaran Mentor
       </h1>
       <p className="text-xl text-gray-600 max-w-2xl mx-auto">
         Bergabunglah dengan tim pengajar terbaik di bimbingan belajar kami dan

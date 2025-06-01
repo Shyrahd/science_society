@@ -7,11 +7,11 @@ function UserProfile() {
   const [isEditing, setIsEditing] = useState(false);
   const [userInfo, setUserInfo] = useState({
     name: "Musyafa Nabil Ihsan",
-    email: "Musya.Fanabile@example.com",
+    email: "Musya.Fanabil@gmail.com",
     phone: "+62812 3456 7890",
     department: "Manajemen Informatika",
     studentId: "CS2024001",
-    joinDate: "Mei 2025",
+    joinDate: "April 2025",
   });
 
   const handleEdit = () => {
@@ -201,29 +201,6 @@ function AccountDetails({ userInfo, setUserInfo, isEditing }) {
           ) : (
             <p className="text-gray-900 bg-gray-50 px-3 py-2 rounded-lg border border-gray-200">
               {userInfo.phone}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-2">
-            Department
-          </label>
-          {isEditing ? (
-            <select
-              value={userInfo.department}
-              onChange={(e) => handleInputChange("department", e.target.value)}
-              className="w-full bg-white border border-gray-300 rounded-lg px-3 py-2 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-            >
-              <option value="Computer Science">Computer Science</option>
-              <option value="Physics">Physics</option>
-              <option value="Chemistry">Chemistry</option>
-              <option value="Biology">Biology</option>
-              <option value="Mathematics">Mathematics</option>
-            </select>
-          ) : (
-            <p className="text-gray-900 bg-gray-50 px-3 py-2 rounded-lg border border-gray-200">
-              {userInfo.department}
             </p>
           )}
         </div>

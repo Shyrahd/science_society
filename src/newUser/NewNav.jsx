@@ -102,24 +102,38 @@ export default NewNav;
 function NewNotif() {
   const notifications = [
     {
-      id: 3,
-      title: "Interview dijadwalkan",
-      message: "Anda lolos ketahap Interview dan akan memulai pelatihan",
+      id: 5,
+      title: "Selamat ! Anda Diterima",
+      message: "Anda telah diterima menjadi Mentor dan akan memulai pelatihan",
       time: "2 Minggu yang lalu",
+      isRead: true,
+    },
+    {
+      id: 4,
+      title: "Anda lolos ketahap Tes Lanjutan",
+      message: "Anda akan mendapatkan jadwal Tes Lanjutan melalui WA, Silahkan Mengonfirmasi Jadwal",
+      time: "3 Minggu yang lalu",
+      isRead: true,
+    },
+    {
+      id: 3,
+      title: "Anda lolos ketahap Interview",
+      message: "Anda akan segera mendapatkan pesan melalui WA, Silahkan Mengonfirmasi Jadwal",
+      time: "3 Minggu yang lalu",
       isRead: true,
     },
     {
       id: 2,
       title: "Lamaran Terkirim",
       message: "Lamaran Anda telah berhasil dikirim",
-      time: "3 Minggu yang lalu",
+      time: "4 Minggu yang lalu",
       isRead: true,
     },
     {
       id: 1,
       title: "Akun Berhasil Dibuat",
       message: "Anda berhasil membuat akun baru",
-      time: "3 Minggu yang lalu",
+      time: "4 Minggu yang lalu",
       isRead: true,
     },
   ];

@@ -16,6 +16,7 @@ import DaftarAkun from "./newUser/DaftarAkun";
 import Pelamar from "./management/Pelamar";
 import Interview from "./management/Interview";
 import DaftarMentor from "./management/DaftarMentor";
+import TesLanjutan from "./management/TesLanjutan";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Pelamar" element={<Pelamar />} />
           <Route path="/Interview" element={<Interview />} />
+          <Route path="/TesLanjutan" element={<TesLanjutan />} />
           <Route path="/Mentor" element={<DaftarMentor />} />
           <Route path="/AdmProfile" element={<AdmProfile />} />
           <Route path="*" element={<Notfound />} />

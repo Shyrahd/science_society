@@ -9,7 +9,7 @@ function TopBar() {
   
           {/* Optional: Add user info or actions on the right */}
           <div className="flex items-center space-x-4">
-            <div className="text-sm text-gray-300">Welcome, Admin</div>
+            <div className="text-sm text-gray-300">Welcome, Flendi</div>
             <div className="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center">
               <svg className="w-5 h-5 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
                 <path
