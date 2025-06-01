@@ -10,8 +10,8 @@ function Pelamar() {
     <>
       <div className="min-h-screen bg-gray-950">
         <TopBar />
-        <div className="flex">
-          <div className="sticky top-0 h-screen">
+        <div className="flex relative">
+          <div className="sticky top-0 h-screen z-40">
             <ManageSide />
           </div>
           <ListPelamar />
@@ -247,7 +247,7 @@ function ListPelamar() {
   }, [applicants, searchQuery, sortBy]);
 
   return (
-    <main className="flex-1 overflow-auto">
+    <main className="flex-1 overflow-auto relative z-0">
       <div className="container mx-auto px-4 py-8">
         <HeaderSection />
         <FilterSection
@@ -291,20 +291,20 @@ function FilterSection({
   totalApplicants,
 }) {
   return (
-    <div className="bg-gray-800 rounded-lg shadow-lg p-6 mb-8 border border-gray-700">
+    <div className="bg-gray-800 rounded-lg shadow-lg p-6 mb-8 border border-gray-700 relative z-10">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
         <div className="flex-1">
-          <div className="relative">
+          <div className="relative z-10">
             <input
               type="text"
               placeholder="Cari nama, email, pendidikan, atau mata pelajaran..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
+              className="w-full pl-10 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 relative z-10"
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+              className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 z-20"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -323,7 +323,7 @@ function FilterSection({
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
+              className="px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white relative z-10"
             >
               <option value="date">Terbaru</option>
               <option value="name">Nama (A-Z)</option>
@@ -339,7 +339,7 @@ function FilterSection({
           pelamar
         </div>
         <div className="flex gap-2">
-          <button className="px-4 py-2 text-sm border border-gray-600 rounded-lg hover:bg-gray-700 flex items-center text-gray-300 hover:text-white transition-colors">
+          <button className="px-4 py-2 text-sm border border-gray-600 rounded-lg hover:bg-gray-700 flex items-center text-gray-300 hover:text-white transition-colors relative z-10">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4 mr-1"

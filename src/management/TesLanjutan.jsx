@@ -72,7 +72,7 @@ function CalonLanjutan() {
     },
     {
       id: 4,
-      name: "Nanda Pratama",
+      name: "Surya Mesiah",
       email: "nanda.pratama@gmail.com",
       phone: "081234567813",
       education: "S1 Geografi UGM",

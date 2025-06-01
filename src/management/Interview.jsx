@@ -29,7 +29,7 @@ function InterviewCard() {
       id: 1,
       kandidat: {
         nama: "Nanda Pratama",
-        posisi: "Tutor SNBT Matematika",
+        posisi: "Tutor TWK & TKP",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       tanggal: "2025-06-02",
@@ -41,8 +41,8 @@ function InterviewCard() {
     {
       id: 2,
       kandidat: {
-        nama: "Ahmad Rizki Pratama",
-        posisi: "Tutor TWK & TIU",
+        nama: "Joko Dodi",
+        posisi: "Tutor Penalaran Matematika & TIU",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       tanggal: "2025-06-02",
@@ -54,8 +54,8 @@ function InterviewCard() {
     {
       id: 3,
       kandidat: {
-        nama: "Putri Maharani",
-        posisi: "Tutor Bahasa Indonesia SNBT",
+        nama: "Gunawan Wibisono",
+        posisi: "Tutor TKP % TWK",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       tanggal: "2025-06-03",
@@ -67,8 +67,8 @@ function InterviewCard() {
     {
       id: 4,
       kandidat: {
-        nama: "Budi Santoso",
-        posisi: "Admin Akademik",
+        nama: "Siti Nurhaliza",
+        posisi: "Tutor Bahasa Indonesia & Penalaran Matematika",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       tanggal: "2025-06-04",
@@ -76,19 +76,6 @@ function InterviewCard() {
       status: "dijadwal_ulang",
       keterangan: "Interview untuk posisi admin akademik",
       lokasi: "Zoom Meeting C",
-    },
-    {
-      id: 5,
-      kandidat: {
-        nama: "Indira Sari",
-        posisi: "Tutor TKP & SKD",
-        avatar: "/placeholder.svg?height=40&width=40",
-      },
-      tanggal: "2025-06-05",
-      waktu: "09:00 - 10:00",
-      status: "terjadwal",
-      keterangan: "Interview untuk tutor tes karakteristik pribadi",
-      lokasi: "Zoom Meeting B",
     },
   ];
 
