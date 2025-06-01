@@ -31,25 +31,37 @@ function NewNav() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-[#1c2953] rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-[#1c2953] rounded-box z-1 mt-3 w-[90vw] max-w-xs sm:w-52 p-3 sm:p-2 shadow"
             >
               <li>
-                <Link to="/LandPage" className="font-bold font-montserrat">
+                <Link
+                  to="/LandPage"
+                  className="font-bold font-montserrat py-3 sm:py-2"
+                >
                   HomePage
                 </Link>
               </li>
               <li>
-                <Link to="/User" className="font-bold font-montserrat">
+                <Link
+                  to="/User"
+                  className="font-bold font-montserrat py-3 sm:py-2"
+                >
                   Profil
                 </Link>
               </li>
               <li>
-                <Link to="/Pelatihan" className="font-bold font-montserrat">
+                <Link
+                  to="/Pelatihan"
+                  className="font-bold font-montserrat py-3 sm:py-2"
+                >
                   Pelatihan
                 </Link>
               </li>
               <li>
-                <Link to="/Lamar" className="font-bold font-montserrat">
+                <Link
+                  to="/Lamar"
+                  className="font-bold font-montserrat py-3 sm:py-2"
+                >
                   Lamar
                 </Link>
               </li>
@@ -168,7 +180,7 @@ function NewNotif() {
   }, []);
 
   return (
-    <div className="dropdown dropdown-end">
+    <div className="dropdown dropdown-end lg:dropdown-end">
       <div
         tabIndex={0}
         role="button"
@@ -197,39 +209,43 @@ function NewNotif() {
         )}
       </div>
 
+      {/* <div
+        tabIndex={0}
+        className="dropdown-content card card-compact w-[85vw] sm:w-80 p-2 shadow bg-base-100 text-base-content mt-3 max-h-[70vh] overflow-y-auto right-2 sm:right-auto translate-x-0"
+      > */}
       <div
         tabIndex={0}
-        className="dropdown-content card card-compact w-80 p-2 shadow bg-base-100 text-base-content mt-3"
+        className="dropdown-content card card-compact w-[90vw] sm:w-80 p-2 shadow bg-base-100 text-base-content mt-3 max-h-[70vh] overflow-y-auto left-[48%] transform -translate-x-[48%] sm:left-auto sm:transform-none sm:right-0"
       >
-        <div className="card-body">
-          <h3 className="font-bold text-lg mb-3">Notifikasi</h3>
-          <div className="space-y-3">
+        <div className="card-body p-3 sm:p-4">
+          <h3 className="font-bold text-base sm:text-lg mb-3">Notifikasi</h3>
+          <div className="space-y-2 sm:space-y-3">
             {notifications.map((notification) => (
               <div
                 key={notification.id}
-                className={`p-3 rounded-lg border-l-4 ${
+                className={`p-3 sm:p-3 rounded-lg border-l-4 ${
                   notification.isRead
                     ? "border-gray-300 bg-gray-50"
                     : "border-primary bg-primary/5"
                 }`}
               >
                 <div className="flex justify-between items-start">
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <h4
-                      className={`font-semibold text-sm ${
+                      className={`font-semibold text-sm sm:text-sm ${
                         notification.isRead
                           ? "text-gray-600"
                           : "text-base-content"
-                      }`}
+                      } leading-tight`}
                     >
                       {notification.title}
                     </h4>
                     <p
-                      className={`text-xs mt-1 ${
+                      className={`text-xs sm:text-xs mt-1 ${
                         notification.isRead
                           ? "text-gray-500"
                           : "text-base-content/70"
-                      }`}
+                      } leading-relaxed`}
                     >
                       {notification.message}
                     </p>
@@ -238,7 +254,7 @@ function NewNotif() {
                     </span>
                   </div>
                   {!notification.isRead && (
-                    <div className="w-2 h-2 bg-primary rounded-full ml-2 mt-1"></div>
+                    <div className="w-2 h-2 bg-primary rounded-full ml-2 mt-1 flex-shrink-0"></div>
                   )}
                 </div>
               </div>
