@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import ManageSide from "./ManageSide";
 import TopBar from "./TopBar";
+import { jsPDF } from "jspdf";
 
 function Pelamar() {
   return (
@@ -443,6 +444,66 @@ function ApplicantRow({ applicant }) {
     return new Date(dateString).toLocaleDateString("id-ID", options);
   };
 
+  const downloadPDF = () => {
+    // Create a new PDF document
+    const doc = new jsPDF();
+
+    // Set font size and styles
+    doc.setFontSize(22);
+    doc.setFont("helvetica", "bold");
+    doc.text("Detail Pelamar", 105, 20, { align: "center" });
+
+    // Add Science Society logo/header
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "normal");
+    doc.text("Science Society Bimbel", 105, 30, { align: "center" });
+    doc.text("Program SNBT, UTBK, dan Tes Kedinasan", 105, 35, {
+      align: "center",
+    });
+
+    // Add horizontal line
+    doc.setLineWidth(0.5);
+    doc.line(20, 40, 190, 40);
+
+    // Add applicant details
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "bold");
+    doc.text("Data Pribadi", 20, 50);
+
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "normal");
+    doc.text(`Nama: ${applicant.name}`, 20, 60);
+    doc.text(`Email: ${applicant.email}`, 20, 70);
+    doc.text(`Telepon: ${applicant.phone}`, 20, 80);
+    doc.text(`Pendidikan: ${applicant.education}`, 20, 90);
+    doc.text(`Pengalaman: ${applicant.experience}`, 20, 100);
+
+    // Add application details
+    doc.setFontSize(14);
+    doc.setFont("helvetica", "bold");
+    doc.text("Detail Lamaran", 20, 120);
+
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "normal");
+    doc.text(`Tanggal Melamar: ${formatDate(applicant.applyDate)}`, 20, 130);
+    doc.text(`Status: ${statusLabels[applicant.status]}`, 20, 140);
+
+    // Add subjects
+    doc.text(`Mata Pelajaran: ${applicant.subjects.join(", ")}`, 20, 150);
+
+    // Add footer
+    doc.setFontSize(10);
+    doc.text(
+      "Dokumen ini dihasilkan secara otomatis dari sistem Science Society.",
+      105,
+      280,
+      { align: "center" }
+    );
+
+    // Save the PDF with the applicant's name
+    doc.save(`Pelamar_${applicant.name.replace(/\s+/g, "_")}.pdf`);
+  };
+
   return (
     <tr className="hover:bg-gray-700 transition-colors">
       <td className="px-6 py-4 whitespace-nowrap">
@@ -481,46 +542,32 @@ function ApplicantRow({ applicant }) {
         </span>
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-        <div className="flex gap-2">
-          <button className="text-blue-400 hover:text-blue-300 p-1 rounded transition-colors">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-              />
-            </svg>
-          </button>
-          <button className="text-gray-400 hover:text-gray-300 p-1 rounded transition-colors">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-              />
-            </svg>
-          </button>
-        </div>
+        <button
+          className="text-blue-400 hover:text-blue-300 p-1 rounded transition-colors hover:bg-gray-600"
+          onClick={downloadPDF}
+          title="Download Detail PDF"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+            />
+          </svg>
+        </button>
       </td>
     </tr>
   );
