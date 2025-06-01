@@ -74,11 +74,6 @@ function NewNav() {
               </Link>
             </li>
             <li>
-              <Link to="/Pelatihan" className="font-bold font-montserrat">
-                Pelatihan
-              </Link>
-            </li>
-            <li>
               <Link to="/Lamar" className="font-bold font-montserrat">
                 Lamar
               </Link>

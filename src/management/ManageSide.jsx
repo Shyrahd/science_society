@@ -149,12 +149,14 @@ function SideBar() {
         </div>
       </div>
       <nav className="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-gray-300">
-        <Link to="/Dashboard"
+        <Link
+          to="/Dashboard"
           className="flex items-center w-full p-3 leading-tight transition-all
           rounded-lg outline-none text-start hover:bg-gray-700
           hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700
           focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700
-          active:bg-opacity-80 active:text-gray-100 cursor-pointer" >
+          active:bg-opacity-80 active:text-gray-100 cursor-pointer"
+        >
           <div className="grid mr-4 place-items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -370,8 +372,8 @@ function SideBar() {
             </div>
           </button>
         </Link>
-        <button
-          onClick={() => (window.location.href = "/AdmProfile")}
+        <Link
+          to="/AdmProfile"
           className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100"
         >
           <div className="grid mr-4 place-items-center">
@@ -390,7 +392,7 @@ function SideBar() {
             </svg>
           </div>
           Profile
-        </button>
+        </Link>
         <button
           onClick={() => (window.location.href = "/")}
           className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100 cursor-pointer"
