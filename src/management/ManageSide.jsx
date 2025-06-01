@@ -386,7 +386,7 @@ function SideBar() {
               ></path>
             </svg>
           </div>
-          Settings
+          Profile
         </button>
         <button
           onClick={() => (window.location.href = "/")}
