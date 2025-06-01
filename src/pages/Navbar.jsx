@@ -452,7 +452,7 @@ function NotifBar() {
         {showNotifMenu && (
           <div
             ref={notifMenuRef}
-            className="absolute top-full right-0 mt-2 w-56 bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
+            className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-64 bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
           >
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-3">
               <h3 className="font-semibold text-base text-white">Notifikasi</h3>
@@ -543,7 +543,7 @@ function NotifBar() {
         {activeDropdown === "inbox" && (
           <div
             ref={(el) => (dropdownRefs.current.inbox = el)}
-            className="absolute top-full right-0 mt-2 w-80 bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
+            className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[70vw] max-w-xs bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
           >
             <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-4">
               <h3 className="font-semibold text-lg text-white">Pesan Masuk</h3>
@@ -607,7 +607,7 @@ function NotifBar() {
         {activeDropdown === "updates" && (
           <div
             ref={(el) => (dropdownRefs.current.updates = el)}
-            className="absolute top-full right-0 mt-2 w-80 bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
+            className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[70vw] max-w-xs bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
           >
             <div className="bg-gradient-to-r from-orange-600 to-orange-700 p-4">
               <h3 className="font-semibold text-lg text-white">
@@ -659,7 +659,7 @@ function NotifBar() {
         {activeDropdown === "stats" && (
           <div
             ref={(el) => (dropdownRefs.current.stats = el)}
-            className="absolute top-full right-0 mt-2 w-80 bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
+            className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[70vw] max-w-xs bg-white rounded-xl shadow-2xl z-50 overflow-hidden"
           >
             <div className="bg-gradient-to-r from-purple-600 to-purple-700 p-4">
               <div className="flex items-center gap-3">

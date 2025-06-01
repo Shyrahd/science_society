@@ -209,13 +209,9 @@ function NewNotif() {
         )}
       </div>
 
-      {/* <div
-        tabIndex={0}
-        className="dropdown-content card card-compact w-[85vw] sm:w-80 p-2 shadow bg-base-100 text-base-content mt-3 max-h-[70vh] overflow-y-auto right-2 sm:right-auto translate-x-0"
-      > */}
       <div
         tabIndex={0}
-        className="dropdown-content card card-compact w-[90vw] sm:w-80 p-2 shadow bg-base-100 text-base-content mt-3 max-h-[70vh] overflow-y-auto left-[48%] transform -translate-x-[48%] sm:left-auto sm:transform-none sm:right-0"
+        className="dropdown-content card card-compact w-[60vw] sm:w-80 p-2 shadow bg-base-100 text-base-content mt-3 max-h-[70vh] overflow-y-auto left-[48%] transform -translate-x-[48%] sm:left-auto sm:transform-none sm:right-0"
       >
         <div className="card-body p-3 sm:p-4">
           <h3 className="font-bold text-base sm:text-lg mb-3">Notifikasi</h3>
