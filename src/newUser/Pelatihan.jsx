@@ -278,7 +278,7 @@ function UpcomingSchedule() {
   const scheduleData = [
     {
       title: "Orientasi Budaya Perusahaan",
-      date: "15 Februari 2025",
+      date: "1 Juni 2025",
       time: "09:00 - 12:00",
       instructor: "HR Team & Management",
       location: "Zoom Meeting Room A",
@@ -287,7 +287,7 @@ function UpcomingSchedule() {
     },
     {
       title: "Workshop Teknik Mengajar Efektif",
-      date: "1 Maret 2025",
+      date: "5 Juni 2025",
       time: "13:00 - 16:00",
       instructor: "Dr. Budi Santoso",
       location: "Zoom Meeting Room B",
@@ -296,7 +296,7 @@ function UpcomingSchedule() {
     },
     {
       title: "Simulasi Mengajar & Feedback",
-      date: "15 Maret 2025",
+      date: "15 Juni 2025",
       time: "10:00 - 15:00",
       instructor: "Senior Mentor Team",
       location: "Science Society HQ",
@@ -305,7 +305,7 @@ function UpcomingSchedule() {
     },
     {
       title: "Ujian Sertifikasi Internal",
-      date: "1 April 2025",
+      date: "1 Juli 2025",
       time: "09:00 - 12:00",
       instructor: "Certification Board",
       location: "Science Society HQ",
