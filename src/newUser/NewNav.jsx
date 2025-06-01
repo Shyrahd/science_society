@@ -74,6 +74,11 @@ function NewNav() {
               </Link>
             </li>
             <li>
+              <Link to="/Pelatihan" className="font-bold font-montserrat">
+                Pelatihan
+              </Link>
+            </li>
+            <li>
               <Link to="/Lamar" className="font-bold font-montserrat">
                 Lamar
               </Link>
@@ -106,14 +111,16 @@ function NewNotif() {
     {
       id: 4,
       title: "Anda lolos ketahap Tes Lanjutan",
-      message: "Anda akan mendapatkan jadwal Tes Lanjutan melalui WA, Silahkan Mengonfirmasi Jadwal",
+      message:
+        "Anda akan mendapatkan jadwal Tes Lanjutan melalui WA, Silahkan Mengonfirmasi Jadwal",
       time: "3 Minggu yang lalu",
       isRead: true,
     },
     {
       id: 3,
       title: "Anda lolos ketahap Interview",
-      message: "Anda akan segera mendapatkan pesan melalui WA, Silahkan Mengonfirmasi Jadwal",
+      message:
+        "Anda akan segera mendapatkan pesan melalui WA, Silahkan Mengonfirmasi Jadwal",
       time: "3 Minggu yang lalu",
       isRead: true,
     },

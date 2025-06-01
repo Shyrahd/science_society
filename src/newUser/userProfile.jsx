@@ -221,18 +221,28 @@ function AccountDetails({ userInfo, setUserInfo, isEditing }) {
 function ActivitySection() {
   const activities = [
     {
-      action: "Anda Lolos Ke Tahap Interview",
+      action: "Selamat ! Anda lulus menjadi Mentor",
       date: "2 Minggu yang Lalu",
+      type: "congrats",
+    },
+    {
+      action: "Anda Lolos Ke Tahap Tes Lanjutan",
+      date: "3 Minggu yang Lalu",
       type: "application",
     },
     {
-      action: "Anda telah mengajukan lamaran sebagai mentor",
+      action: "Anda Lolos Ke Tahap Interview",
       date: "3 Minggu yang Lalu",
       type: "application",
+    },
+    {
+      action: "Lamaran Terkirim",
+      date: "4 Minggu yang Lalu",
+      type: "profile",
     },
     {
       action: "Anda telah membuat akun",
-      date: "3 Minggu yang Lalu",
+      date: "4 Minggu yang Lalu",
       type: "profile",
     },
   ];
@@ -247,6 +257,8 @@ function ActivitySection() {
         return "📋";
       case "application":
         return "📝";
+      case "congrats":
+        return "🎉";
       default:
         return "📝";
     }
