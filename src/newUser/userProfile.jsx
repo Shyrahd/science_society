@@ -56,12 +56,299 @@ function UserProfile() {
             </div>
           </div>
 
+          {/* Application Progress Section */}
+          <div className="mt-8">
+            <ApplicationProgressCard />
+          </div>
+
           {/* Activity Section */}
           <div className="mt-8">
             <ActivitySection />
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function ApplicationProgressCard() {
+  const [currentStage, setCurrentStage] = useState(4); // Currently in "Pelatihan" stage
+
+  const stages = [
+    {
+      id: 1,
+      name: "Kirim Lamaran",
+      description: "Pengiriman berkas lamaran dan CV",
+      date: "1 Mei 2025",
+      status: "completed",
+      icon: "📄",
+      details: {
+        title: "Pengiriman Lamaran",
+        content:
+          "Berkas lamaran telah dikirim dan diterima oleh tim rekrutmen. Semua dokumen persyaratan telah lengkap.",
+        requirements: [
+          "CV terbaru",
+          "Surat lamaran",
+          "Transkrip nilai",
+          "Portofolio",
+        ],
+      },
+    },
+    {
+      id: 2,
+      name: "Interview",
+      description: "Wawancara dengan tim rekrutmen",
+      date: "5 Mei 2025",
+      status: "completed",
+      icon: "💬",
+      details: {
+        title: "Tahap Interview",
+        content:
+          "Interview telah dilaksanakan dengan hasil memuaskan. Diskusi meliputi motivasi, pengalaman, dan visi sebagai mentor.",
+        requirements: [
+          "Interview HR",
+          "Interview teknis",
+          "Presentasi diri",
+          "Diskusi kasus",
+        ],
+      },
+    },
+    {
+      id: 3,
+      name: "Tes Lanjutan",
+      description: "Tes kemampuan dan psikologi",
+      date: "9 Mei 2025",
+      status: "completed",
+      icon: "📝",
+      details: {
+        title: "Tes Lanjutan",
+        content:
+          "Berhasil menyelesaikan tes kemampuan akademik dan tes psikologi dengan skor yang memenuhi standar.",
+        requirements: [
+          "Tes akademik",
+          "Tes psikologi",
+          "Tes mengajar",
+          "Assessment center",
+        ],
+      },
+    },
+    {
+      id: 4,
+      name: "Pelatihan",
+      description: "Program pelatihan mentor 12 minggu",
+      date: "16 Mei 2025",
+      status: "current",
+      icon: "🎓",
+      details: {
+        title: "Program Pelatihan",
+        content:
+          "Sedang mengikuti program pelatihan mentor intensif selama 12 minggu. Saat ini berada di fase onboarding.",
+        requirements: [
+          "Orientasi",
+          "Pelatihan intensif",
+          "Sertifikasi",
+          "Deployment",
+        ],
+      },
+    },
+  ];
+
+  const currentStageData = stages.find((stage) => stage.id === currentStage);
+  const progressPercentage = Math.round((currentStage / stages.length) * 100);
+
+  // Calculate the width for the progress connector line
+  // We need to adjust this so it doesn't extend too far when at the last stage
+  const calculateProgressWidth = () => {
+    if (currentStage === 1) return "0%";
+    if (currentStage === stages.length) return "calc(100% - 24px)"; // Subtract half the width of the last circle
+
+    // For stages in between, calculate proportionally
+    return `calc(${((currentStage - 1) / (stages.length - 1)) * 100}% - 12px)`;
+  };
+
+  return (
+    <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-4 md:p-6">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 gap-3">
+        <h2 className="text-xl font-semibold text-gray-900">
+          Progress Rekrutmen
+        </h2>
+        <span className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full self-start sm:self-auto">
+          {progressPercentage}% Selesai
+        </span>
+      </div>
+
+      {/* Progress Bar */}
+      <div className="w-full bg-gray-200 rounded-full h-3 mb-6">
+        <div
+          className="bg-gradient-to-r from-blue-500 to-green-500 h-3 rounded-full transition-all duration-500"
+          style={{ width: `${progressPercentage}%` }}
+        ></div>
+      </div>
+
+      {/* Desktop Timeline */}
+      <div className="hidden md:block mb-8">
+        <div className="relative">
+          {/* Background connector line */}
+          <div className="absolute top-6 left-6 right-6 h-0.5 bg-gray-300 z-0"></div>
+
+          {/* Progress connector line - adjusted width calculation */}
+          <div
+            className="absolute top-6 left-6 h-0.5 bg-green-500 transition-all duration-500 z-0"
+            style={{ width: calculateProgressWidth() }}
+          ></div>
+
+          <div className="grid grid-cols-4 gap-4">
+            {stages.map((stage, index) => (
+              <div
+                key={stage.id}
+                className={`relative cursor-pointer transition-all ${
+                  stage.status === "completed"
+                    ? "text-green-600"
+                    : stage.status === "current"
+                    ? "text-blue-600"
+                    : "text-gray-400"
+                }`}
+                onClick={() => setCurrentStage(stage.id)}
+              >
+                {/* Stage Circle */}
+                <div
+                  className={`relative z-20 w-12 h-12 rounded-full flex items-center justify-center text-xl mb-3 mx-auto border-4 ${
+                    stage.status === "completed"
+                      ? "bg-green-500 text-white border-green-500"
+                      : stage.status === "current"
+                      ? "bg-blue-500 text-white border-blue-500"
+                      : "bg-white text-gray-500 border-gray-300"
+                  }`}
+                >
+                  {stage.status === "completed" ? "✓" : stage.icon}
+                </div>
+
+                {/* Stage Info */}
+                <div className="text-center">
+                  <h3 className="font-semibold text-sm mb-1">{stage.name}</h3>
+                  <p className="text-xs opacity-75 mb-1">{stage.description}</p>
+                  <p className="text-xs font-medium">{stage.date}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Timeline */}
+      <div className="md:hidden mb-6">
+        <div className="space-y-4">
+          {stages.map((stage, index) => (
+            <div
+              key={stage.id}
+              className={`flex items-center gap-4 p-3 rounded-lg border-2 cursor-pointer transition-all ${
+                currentStage === stage.id
+                  ? "border-blue-500 bg-blue-50"
+                  : "border-gray-200 bg-white hover:border-gray-300"
+              }`}
+              onClick={() => setCurrentStage(stage.id)}
+            >
+              {/* Stage Circle */}
+              <div
+                className={`relative z-10 w-10 h-10 rounded-full flex items-center justify-center text-lg flex-shrink-0 ${
+                  stage.status === "completed"
+                    ? "bg-green-500 text-white"
+                    : stage.status === "current"
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-200 text-gray-500"
+                }`}
+              >
+                {stage.status === "completed" ? "✓" : stage.icon}
+              </div>
+
+              {/* Stage Info */}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between mb-1">
+                  <h3 className="font-semibold text-sm text-gray-900">
+                    {stage.name}
+                  </h3>
+                  <span
+                    className={`text-xs px-2 py-1 rounded-full flex-shrink-0 ${
+                      stage.status === "completed"
+                        ? "bg-green-100 text-green-800"
+                        : stage.status === "current"
+                        ? "bg-blue-100 text-blue-800"
+                        : "bg-gray-100 text-gray-600"
+                    }`}
+                  >
+                    {stage.status === "completed"
+                      ? "Selesai"
+                      : stage.status === "current"
+                      ? "Aktif"
+                      : "Pending"}
+                  </span>
+                </div>
+                <p className="text-xs text-gray-600 mb-1">
+                  {stage.description}
+                </p>
+                <p className="text-xs font-medium text-gray-500">
+                  {stage.date}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Current Stage Details */}
+      {currentStageData && (
+        <div className="bg-gray-50 rounded-lg p-4 md:p-6 border border-gray-200">
+          <div className="flex items-start gap-3 mb-4">
+            <span className="text-2xl flex-shrink-0">
+              {currentStageData.icon}
+            </span>
+            <div className="flex-1 min-w-0">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                {currentStageData.details.title}
+              </h3>
+              <span
+                className={`inline-block text-sm px-3 py-1 rounded-full ${
+                  currentStageData.status === "completed"
+                    ? "bg-green-100 text-green-800"
+                    : currentStageData.status === "current"
+                    ? "bg-blue-100 text-blue-800"
+                    : "bg-gray-100 text-gray-800"
+                }`}
+              >
+                {currentStageData.status === "completed"
+                  ? "Selesai"
+                  : currentStageData.status === "current"
+                  ? "Sedang Berlangsung"
+                  : "Belum Dimulai"}
+              </span>
+            </div>
+          </div>
+
+          <p className="text-gray-700 mb-4 text-sm md:text-base">
+            {currentStageData.details.content}
+          </p>
+
+          <div>
+            <h4 className="font-medium text-gray-900 mb-3">Komponen:</h4>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {currentStageData.details.requirements.map((req, index) => (
+                <div key={index} className="flex items-center gap-2">
+                  <span
+                    className={`w-2 h-2 rounded-full flex-shrink-0 ${
+                      currentStageData.status === "completed"
+                        ? "bg-green-500"
+                        : currentStageData.status === "current"
+                        ? "bg-blue-500"
+                        : "bg-gray-300"
+                    }`}
+                  />
+                  <span className="text-sm text-gray-600">{req}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -17,6 +17,9 @@ import Pelamar from "./management/Pelamar";
 import Interview from "./management/Interview";
 import DaftarMentor from "./management/DaftarMentor";
 import TesLanjutan from "./management/TesLanjutan";
+import AdmLogin from "./management/AdmLogin";
+import MentorLogin from "./pages/MentorLogin";
+import UserLogin from "./newUser/UserLogin";
 
 function App() {
   return (
@@ -24,14 +27,17 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Face />} />
+          <Route path="/MentorLogin" element={<MentorLogin />} />
           <Route path="/Home" element={<Homepage />} />
           <Route path="/Profil" element={<Profil />} />
           <Route path="/Lamar" element={<Lamar />} />
           <Route path="/Jadwal" element={<Jadwal />} />
+          <Route path="/UserLogin" element={<UserLogin />} />
           <Route path="/Daftar" element={<DaftarAkun />} />
           <Route path="/LandPage" element={<LandPage />} />
           <Route path="/User" element={<UserProfile />} />
           <Route path="/Pelatihan" element={<Pelatihan />} />
+          <Route path="/AdmLogin" element={<AdmLogin />} />
           <Route path="/Dashboard" element={<Dashboard />} />
           <Route path="/Pelamar" element={<Pelamar />} />
           <Route path="/Interview" element={<Interview />} />

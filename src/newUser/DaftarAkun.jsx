@@ -218,7 +218,7 @@ function FormDaftar() {
           <div className="text-center text-sm text-gray-600 pt-4">
             Sudah memiliki akun?{" "}
             <Link
-              to="/LandPage"
+              to="/UserLogin"
               className="text-[#1c2953] font-medium hover:underline"
             >
               Masuk di sini

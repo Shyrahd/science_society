@@ -241,7 +241,7 @@ function FeatureItem({ icon, text }) {
 function Newbtn() {
   return (
     <Link
-      to="/Daftar"
+      to="/UserLogin"
       className="btn w-full bg-gradient-to-r from-green-400 to-green-600 text-white border-0 hover:from-green-500 hover:to-green-700 font-bold font-montserrat transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
     >
       Daftar Mentor
@@ -266,7 +266,7 @@ function Newbtn() {
 function Userbtn() {
   return (
     <Link
-      to="/Home"
+      to="/MentorLogin"
       className="btn w-full bg-gradient-to-r from-[#1c2953] to-[#2d3a6b] text-white border-0 hover:from-[#2d3a6b] hover:to-[#1c2953] font-bold font-montserrat transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
     >
       Portal Mentor
@@ -291,7 +291,7 @@ function Userbtn() {
 function Managebtn() {
   return (
     <Link
-      to="/Dashboard"
+      to="/AdmLogin"
       className="btn w-full bg-gradient-to-r from-purple-500 to-purple-700 text-white border-0 hover:from-purple-600 hover:to-purple-800 font-bold font-montserrat transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
     >
       Panel Admin
