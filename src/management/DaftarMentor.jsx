@@ -1,19 +1,25 @@
 import ManageSide from "./ManageSide";
+import TopBar from "./TopBar";
 
 function DaftarMentor() {
   return (
-    <div className="flex min-h-screen bg-gray-50">
-      <ManageSide />
-      <div className="flex-1 p-6">
-        <div className="mb-6">
-          <h1 className="text-3xl font-bold text-gray-900">Daftar Mentor</h1>
-          <p className="text-gray-600 mt-2">
-            Tim pengajar terbaik untuk persiapan SNBT, UTBK, dan Tes Kedinasan
-          </p>
+    <>
+      <TopBar />
+      <div className="flex min-h-screen bg-gray-950">
+        <div className="sticky top-0 h-screen">
+          <ManageSide />
         </div>
-        <MentorCard />
+        <div className="flex-1 p-6">
+          <div className="mb-6">
+            <h1 className="text-3xl font-bold text-white">Daftar Mentor</h1>
+            <p className="text-gray-400 mt-2">
+              Tim pengajar terbaik untuk persiapan SNBT, UTBK, dan Tes Kedinasan
+            </p>
+          </div>
+          <MentorCard />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -111,6 +117,15 @@ function MentorCard() {
       subjects: ["PU", "Konseling", "Motivasi"],
       specialization: "Mentor Konseling & Motivasi Belajar Tes SNBT",
     },
+    {
+      id: 11,
+      name: "Musyafa Nabil Ihsan",
+      education: "D4 Manajemen Informatika - POLSRI",
+      experience: "Pelatihan",
+      rating: " - ",
+      subjects: ["TWK", "Literas Bahasa Indonesia"],
+      specialization: "Mentor Konseling & Motivasi Belajar Tes SNBT",
+    },
   ];
 
   return (
@@ -118,11 +133,11 @@ function MentorCard() {
       {mentors.map((mentor) => (
         <div
           key={mentor.id}
-          className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200"
+          className="bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-700 hover:border-gray-600"
         >
-          <div className="p-6 text-center border-b border-gray-100">
-            <div className="w-20 h-20 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
-              <span className="text-lg font-semibold text-blue-600">
+          <div className="p-6 text-center border-b border-gray-700">
+            <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+              <span className="text-lg font-semibold text-white">
                 {mentor.name
                   .split(" ")
                   .map((n) => n[0])
@@ -130,42 +145,44 @@ function MentorCard() {
                   .slice(0, 2)}
               </span>
             </div>
-            <h3 className="font-bold text-lg text-gray-900 leading-tight">
+            <h3 className="font-bold text-lg text-white leading-tight">
               {mentor.name}
             </h3>
-            <p className="text-sm text-blue-600 font-medium mt-1">
+            <p className="text-sm text-blue-400 font-medium mt-1">
               {mentor.specialization}
             </p>
           </div>
 
           <div className="p-6 space-y-4">
-            <div className="flex items-start gap-2 text-sm text-gray-600">
-              <span className="text-blue-500 font-medium">🎓</span>
-              <span className="text-xs leading-tight">{mentor.education}</span>
+            <div className="flex items-start gap-2 text-sm">
+              <span className="text-blue-400 font-medium">🎓</span>
+              <span className="text-xs leading-tight text-gray-300">
+                {mentor.education}
+              </span>
             </div>
 
             <div className="flex items-center justify-between text-sm">
               <div className="flex items-center gap-1">
-                <span className="text-green-500">📚</span>
-                <span className="text-gray-600">{mentor.experience}</span>
+                <span className="text-green-400">📚</span>
+                <span className="text-gray-300">{mentor.experience}</span>
               </div>
               <div className="flex items-center gap-1">
-                <span className="text-yellow-500">⭐</span>
-                <span className="font-medium text-gray-700">
+                <span className="text-yellow-400">⭐</span>
+                <span className="font-medium text-gray-200">
                   {mentor.rating}
                 </span>
               </div>
             </div>
 
             <div>
-              <p className="text-sm font-medium text-gray-700 mb-2">
+              <p className="text-sm font-medium text-gray-200 mb-2">
                 Mata Pelajaran:
               </p>
               <div className="flex flex-wrap gap-1">
                 {mentor.subjects.map((subject, index) => (
                   <span
                     key={index}
-                    className="px-2 py-1 text-xs bg-blue-50 text-blue-700 rounded-md border border-blue-200"
+                    className="px-2 py-1 text-xs bg-blue-900 text-blue-200 rounded-md border border-blue-700"
                   >
                     {subject}
                   </span>

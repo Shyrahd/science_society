@@ -6,12 +6,12 @@ import NewNav from "./NewNav";
 function UserProfile() {
   const [isEditing, setIsEditing] = useState(false);
   const [userInfo, setUserInfo] = useState({
-    name: "John Doe",
-    email: "john.doe@example.com",
-    phone: "+1 (555) 123-4567",
-    department: "Computer Science",
+    name: "Musyafa Nabil Ihsan",
+    email: "Musya.Fanabile@example.com",
+    phone: "+62812 3456 7890",
+    department: "Manajemen Informatika",
     studentId: "CS2024001",
-    joinDate: "September 2024",
+    joinDate: "Mei 2025",
   });
 
   const handleEdit = () => {
@@ -100,10 +100,6 @@ function ProfileCard({ userInfo, isEditing, onEdit, onSave }) {
           </button>
         </div>
         <h2 className="text-xl font-semibold text-gray-900">{userInfo.name}</h2>
-        <p className="text-gray-600">{userInfo.department}</p>
-        <span className="inline-block bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm mt-2 border border-green-200">
-          Active Member
-        </span>
       </div>
 
       {/* Action Buttons */}
@@ -229,14 +225,6 @@ function AccountDetails({ userInfo, setUserInfo, isEditing }) {
           )}
         </div>
 
-        <div>
-          <label className="block text-gray-700 text-sm font-medium mb-2">
-            Student ID
-          </label>
-          <p className="text-gray-600 bg-gray-50 px-3 py-2 rounded-lg border border-gray-200">
-            {userInfo.studentId}
-          </p>
-        </div>
 
         <div>
           <label className="block text-gray-700 text-sm font-medium mb-2">
@@ -254,13 +242,18 @@ function AccountDetails({ userInfo, setUserInfo, isEditing }) {
 function ActivitySection() {
   const activities = [
     {
+      action: "Anda Lolos Ke Tahap Interview",
+      date: "2 Minggu yang Lalu",
+      type: "application",
+    },
+    {
       action: "Anda telah mengajukan lamaran sebagai mentor",
-      date: "Hari ini",
+      date: "3 Minggu yang Lalu",
       type: "application",
     },
     {
       action: "Anda telah membuat akun",
-      date: "Hari ini",
+      date: "3 Minggu yang Lalu",
       type: "profile",
     },
   ];

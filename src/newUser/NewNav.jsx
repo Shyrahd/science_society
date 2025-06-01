@@ -103,24 +103,23 @@ function NewNotif() {
   const notifications = [
     {
       id: 3,
-      title: "Selamat! Anda Lolos",
-      message: "Anda lolos seleksi dan akan memulai pelatihan",
-      time: "2 jam yang lalu",
-      isRead: false,
+      title: "Interview dijadwalkan",
+      message: "Anda lolos ketahap Interview dan akan memulai pelatihan",
+      time: "2 Minggu yang lalu",
+      isRead: true,
     },
     {
       id: 2,
       title: "Lamaran Terkirim",
       message: "Lamaran Anda telah berhasil dikirim",
-      time: "3 hari yang lalu",
+      time: "3 Minggu yang lalu",
       isRead: true,
     },
     {
       id: 1,
       title: "Akun Berhasil Dibuat",
       message: "Anda berhasil membuat akun baru",
-
-      time: "3 hari yang lalu",
+      time: "3 Minggu yang lalu",
       isRead: true,
     },
   ];
@@ -229,11 +228,7 @@ function NewNotif() {
               </div>
             ))}
           </div>
-          <div className="card-actions justify-end mt-4">
-            <button className="btn btn-sm btn-ghost" onClick={markAllAsRead}>
-              Tandai Semua Dibaca
-            </button>
-          </div>
+          <div className="card-actions justify-end mt-4"></div>
         </div>
       </div>
     </div>

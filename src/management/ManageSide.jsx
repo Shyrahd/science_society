@@ -149,125 +149,24 @@ function SideBar() {
         </div>
       </div>
       <nav className="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-gray-300">
-        <div className="relative block w-full">
-          <div
-            role="button"
-            className="flex items-center w-full p-0 leading-tight transition-all rounded-lg outline-none text-start text-gray-300 hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100"
-          >
-            <button
-              type="button"
-              onClick={toggleDashboard}
-              className="flex items-center justify-between w-full p-3 font-sans text-xl antialiased font-semibold leading-snug text-left transition-colors border-b-0 select-none border-b-gray-700 text-gray-300 hover:text-gray-100"
+        <button
+          onClick={() => (window.location.href = "/Dashboard")}
+          className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100 cursor-pointer"
+        >
+          <div className="grid mr-4 place-items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+              className="w-5 h-5"
             >
-              <div className="grid mr-4 place-items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  className="w-5 h-5"
-                >
-                  <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v9.375c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v4.875c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 18v-4.875z" />
-                </svg>
-              </div>
-              <p className="block mr-auto font-sans text-base antialiased font-normal leading-relaxed text-white">
-                Dashboard
-              </p>
-              <span className="ml-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2.5"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                  className={`w-4 h-4 mx-auto transition-transform ${
-                    isDashboardOpen ? "rotate-180" : ""
-                  }`}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                  ></path>
-                </svg>
-              </span>
-            </button>
+              <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
+              <path d="m12 5.432 8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
+            </svg>
           </div>
-          <div
-            className={`overflow-hidden transition-all duration-300 ${
-              isDashboardOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-            }`}
-          >
-            <div className="block w-full py-1 font-sans text-sm antialiased font-light leading-normal text-gray-400">
-              <nav className="flex min-w-[240px] flex-col gap-1 p-0 font-sans text-base font-normal text-gray-300">
-                <Link
-                  href="/"
-                  className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100"
-                >
-                  <div className="grid mr-4 place-items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="3"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                      className="w-5 h-3"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      ></path>
-                    </svg>
-                  </div>
-                  Overview
-                </Link>
-                <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
-                  <div className="grid mr-4 place-items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="3"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                      className="w-5 h-3"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      ></path>
-                    </svg>
-                  </div>
-                  Analytics
-                </button>
-                <button className="flex items-center w-full p-3 leading-tight transition-all rounded-lg outline-none text-start hover:bg-gray-700 hover:bg-opacity-80 hover:text-gray-100 focus:bg-gray-700 focus:bg-opacity-80 focus:text-gray-100 active:bg-gray-700 active:bg-opacity-80 active:text-gray-100">
-                  <div className="grid mr-4 place-items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth="3"
-                      stroke="currentColor"
-                      aria-hidden="true"
-                      className="w-5 h-3"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                      ></path>
-                    </svg>
-                  </div>
-                  Reports
-                </button>
-              </nav>
-            </div>
-          </div>
-        </div>
+          Dashboard
+        </button>
         <div className="relative block w-full">
           <div
             role="button"
@@ -442,7 +341,7 @@ function SideBar() {
             Mentors Directory
             <div className="grid ml-auto place-items-center justify-self-end">
               <div className="relative grid items-center px-2 py-1 font-sans text-xs font-bold uppercase rounded-full select-none whitespace-nowrap bg-gray-600/50 text-gray-200">
-                <span className="">10</span>
+                <span className="">11</span>
               </div>
             </div>
           </button>
@@ -510,3 +409,19 @@ function SideBar() {
 }
 
 export { ManageSide };
+
+function TopView() {
+  return (
+    <div className="bg-gray-900 border-b border-gray-800 p-4">
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-bold text-white">
+          Science Society - Dashboard Manajemen
+        </h1>
+        <div className="flex items-center space-x-4">
+          <span className="text-gray-300">Admin</span>
+          <div className="w-8 h-8 bg-blue-600 rounded-full"></div>
+        </div>
+      </div>
+    </div>
+  );
+}

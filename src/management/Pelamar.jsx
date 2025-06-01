@@ -2,13 +2,21 @@
 
 import { useState, useEffect } from "react";
 import ManageSide from "./ManageSide";
+import TopBar from "./TopBar";
 
 function Pelamar() {
   return (
-    <div className="flex h-screen bg-gray-100">
-      <ManageSide />
-      <ListPelamar />
-    </div>
+    <>
+      <div className="min-h-screen bg-gray-950">
+        <TopBar />
+        <div className="flex">
+          <div className="sticky top-0 h-screen">
+            <ManageSide />
+          </div>
+          <ListPelamar />
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -61,14 +69,14 @@ function ListPelamar() {
         },
         {
           id: 4,
-          name: "Dewi Lestari",
-          email: "dewi.lestari@gmail.com",
+          name: "Musyafa Nabil Ihsan",
+          email: "Musya.Fanabil@gmail.com",
           phone: "081234567893",
-          education: "S1 Bahasa Inggris UNAIR",
+          education: "D4 Manajemen Informatika Polsri",
           applyDate: "2025-01-13",
           status: "accepted",
-          subjects: ["Literasi Bahasa Inggris", "TPS"],
-          experience: "4 tahun",
+          subjects: ["Literasi Bahasa Indonesia", "TWK"],
+          experience: "1 Tahun",
         },
         {
           id: 5,
@@ -256,10 +264,10 @@ function ListPelamar() {
 function HeaderSection() {
   return (
     <div className="mb-8">
-      <h1 className="text-3xl font-bold text-gray-900 mb-2">
+      <h1 className="text-3xl font-bold text-white mb-2">
         Daftar Pelamar Mentor
       </h1>
-      <p className="text-gray-600">
+      <p className="text-gray-400">
         Kelola dan pantau status pelamar mentor Science Society untuk program
         SNBT, UTBK, dan Tes Kedinasan.
       </p>
@@ -275,7 +283,7 @@ function FilterSection({
   totalApplicants,
 }) {
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+    <div className="bg-gray-800 rounded-lg shadow-lg p-6 mb-8 border border-gray-700">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
         <div className="flex-1">
           <div className="relative">
@@ -284,7 +292,7 @@ function FilterSection({
               placeholder="Cari nama, email, pendidikan, atau mata pelajaran..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -307,7 +315,7 @@ function FilterSection({
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
             >
               <option value="date">Terbaru</option>
               <option value="name">Nama (A-Z)</option>
@@ -317,12 +325,13 @@ function FilterSection({
         </div>
       </div>
       <div className="flex justify-between items-center">
-        <div className="text-sm text-gray-600">
-          Menampilkan <span className="font-semibold">{totalApplicants}</span>{" "}
+        <div className="text-sm text-gray-300">
+          Menampilkan{" "}
+          <span className="font-semibold text-white">{totalApplicants}</span>{" "}
           pelamar
         </div>
         <div className="flex gap-2">
-          <button className="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50 flex items-center">
+          <button className="px-4 py-2 text-sm border border-gray-600 rounded-lg hover:bg-gray-700 flex items-center text-gray-300 hover:text-white transition-colors">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4 mr-1"
@@ -347,7 +356,7 @@ function FilterSection({
 
 function ApplicantsList({ applicants }) {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-700">
       <div className="bg-gray-900 text-white p-4 flex justify-between items-center">
         <div className="flex items-center">
           <svg
@@ -372,38 +381,38 @@ function ApplicantsList({ applicants }) {
           </svg>
           <h2 className="text-xl font-semibold">Daftar Pelamar</h2>
         </div>
-        <span className="bg-white text-gray-900 px-2 py-1 rounded text-sm font-medium">
+        <span className="bg-blue-600 text-white px-2 py-1 rounded text-sm font-medium">
           {applicants.length} Pelamar
         </span>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full">
-          <thead className="bg-gray-50">
+          <thead className="bg-gray-700">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Nama
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Pendidikan
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Mata Pelajaran
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Pengalaman
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Tanggal Lamar
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Status
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                 Aksi
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-gray-800 divide-y divide-gray-700">
             {applicants.map((applicant) => (
               <ApplicantRow key={applicant.id} applicant={applicant} />
             ))}
@@ -416,10 +425,10 @@ function ApplicantsList({ applicants }) {
 
 function ApplicantRow({ applicant }) {
   const statusColors = {
-    review: "bg-yellow-100 text-yellow-800",
-    interview: "bg-blue-100 text-blue-800",
-    accepted: "bg-green-100 text-green-800",
-    rejected: "bg-red-100 text-red-800",
+    review: "bg-yellow-900 text-yellow-200 border-yellow-700",
+    interview: "bg-blue-900 text-blue-200 border-blue-700",
+    accepted: "bg-green-900 text-green-200 border-green-700",
+    rejected: "bg-red-900 text-red-200 border-red-700",
   };
 
   const statusLabels = {
@@ -435,13 +444,13 @@ function ApplicantRow({ applicant }) {
   };
 
   return (
-    <tr className="hover:bg-gray-50">
+    <tr className="hover:bg-gray-700 transition-colors">
       <td className="px-6 py-4 whitespace-nowrap">
-        <div className="font-medium text-gray-900">{applicant.name}</div>
-        <div className="text-sm text-gray-500">{applicant.email}</div>
-        <div className="text-sm text-gray-500">{applicant.phone}</div>
+        <div className="font-medium text-white">{applicant.name}</div>
+        <div className="text-sm text-gray-400">{applicant.email}</div>
+        <div className="text-sm text-gray-400">{applicant.phone}</div>
       </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
         {applicant.education}
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
@@ -449,22 +458,22 @@ function ApplicantRow({ applicant }) {
           {applicant.subjects.map((subject, index) => (
             <span
               key={index}
-              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800"
+              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-700 text-gray-200 border border-gray-600"
             >
               {subject}
             </span>
           ))}
         </div>
       </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
         {applicant.experience}
       </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
         {formatDate(applicant.applyDate)}
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <span
-          className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+          className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${
             statusColors[applicant.status]
           }`}
         >
@@ -473,7 +482,7 @@ function ApplicantRow({ applicant }) {
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
         <div className="flex gap-2">
-          <button className="text-blue-600 hover:text-blue-900 p-1 rounded">
+          <button className="text-blue-400 hover:text-blue-300 p-1 rounded transition-colors">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"
@@ -495,7 +504,7 @@ function ApplicantRow({ applicant }) {
               />
             </svg>
           </button>
-          <button className="text-gray-600 hover:text-gray-900 p-1 rounded">
+          <button className="text-gray-400 hover:text-gray-300 p-1 rounded transition-colors">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"
@@ -519,20 +528,20 @@ function ApplicantRow({ applicant }) {
 
 function LoadingState() {
   return (
-    <div className="bg-white rounded-lg shadow-md p-12 text-center">
-      <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mb-4"></div>
-      <h3 className="text-lg font-semibold text-gray-700">
+    <div className="bg-gray-800 rounded-lg shadow-lg p-12 text-center border border-gray-700">
+      <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mb-4"></div>
+      <h3 className="text-lg font-semibold text-white">
         Memuat data pelamar...
       </h3>
-      <p className="text-gray-500 mt-2">Mohon tunggu sebentar</p>
+      <p className="text-gray-400 mt-2">Mohon tunggu sebentar</p>
     </div>
   );
 }
 
 function EmptyState({ searchQuery }) {
   return (
-    <div className="bg-white rounded-lg shadow-md p-12 text-center">
-      <div className="inline-block rounded-full bg-gray-100 p-6 mb-4">
+    <div className="bg-gray-800 rounded-lg shadow-lg p-12 text-center border border-gray-700">
+      <div className="inline-block rounded-full bg-gray-700 p-6 mb-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-12 w-12 text-gray-400"
@@ -548,16 +557,16 @@ function EmptyState({ searchQuery }) {
           />
         </svg>
       </div>
-      <h3 className="text-lg font-semibold text-gray-700">
+      <h3 className="text-lg font-semibold text-white">
         Tidak ada pelamar ditemukan
       </h3>
       {searchQuery ? (
-        <p className="text-gray-500 mt-2">
+        <p className="text-gray-400 mt-2">
           Tidak ada hasil untuk pencarian "{searchQuery}". Coba dengan kata
           kunci lain.
         </p>
       ) : (
-        <p className="text-gray-500 mt-2">
+        <p className="text-gray-400 mt-2">
           Belum ada pelamar yang terdaftar untuk kriteria ini.
         </p>
       )}

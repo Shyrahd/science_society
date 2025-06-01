@@ -5,7 +5,9 @@ import ManageSide from "./ManageSide";
 function AdmProfile() {
   return (
     <>
-      <ManageSide />
+      <div className="sticky top-0 h-screen">
+        <ManageSide />
+      </div>
       <div className="text-white">asdasd</div>
     </>
   );

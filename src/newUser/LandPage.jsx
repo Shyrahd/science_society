@@ -28,25 +28,27 @@ function UserHero() {
       className="hero min-h-screen"
       style={{
         backgroundImage: "url(/image_1.png)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <div className="hero-overlay bg-opacity-60"></div>
-      <div className="hero-content text-neutral-content text-center">
+      <div className="hero-content text-neutral-content text-center px-4 py-8">
         <div className="max-w-4xl">
-          <h1 className="mb-5 text-6xl font-bold">
+          <h1 className="mb-5 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
             Bergabunglah dengan Tim Mentor Terbaik
           </h1>
-          <h2 className="mb-5 text-2xl font-semibold">
+          <h2 className="mb-5 text-xl sm:text-2xl font-semibold">
             Science Society - Karir Mengajar yang Bermakna
           </h2>
-          <p className="mb-8 text-lg max-w-3xl mx-auto">
+          <p className="mb-8 text-base sm:text-lg max-w-3xl mx-auto">
             Wujudkan passion mengajar Anda bersama Science Society. Bantu ribuan
             siswa meraih impian masuk PTN favorit sambil mengembangkan karir
             profesional yang gemilang dengan kompensasi yang kompetitif.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/Lamar">
-              <button className="btn btn-primary btn-lg">
+              <button className="btn btn-primary btn-lg w-full sm:w-auto">
                 Lamar Jadi Mentor
               </button>
             </Link>
