@@ -9,7 +9,10 @@ function Pelatihan() {
 
   return (
     <>
-      <NewNav />
+      <div className="sticky top-0 z-50 bg-[#1c2953]">
+        <NewNav />
+      </div>
+
       <div className="container mx-auto px-4 py-8">
         <HeaderSection />
         <ProgressSection

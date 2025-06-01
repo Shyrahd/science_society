@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import NewNav from "./NewNav";
 
 function Lamar() {
@@ -135,9 +136,12 @@ function FormLamar() {
     e.preventDefault();
     console.log("Form Data:", formData);
     alert(
-      "Aplikasi berhasil dikirim! Tim kami akan menghubungi Anda dalam 3-5 hari kerja."
+      "Aplikasi berhasil dikirim! Tim kami akan menghubungi Anda dalam 10-15 hari kerja."
     );
+    navigate("/LandPage");
   };
+
+  const navigate = useNavigate();
 
   return (
     <div className="max-w-4xl mx-auto px-4 pb-12">

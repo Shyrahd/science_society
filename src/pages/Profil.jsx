@@ -6,7 +6,10 @@ import Navbar from "./Navbar";
 function profil() {
   return (
     <>
-      <Navbar />
+      <div className="sticky top-0 z-50 bg-[#1c2953]">
+        <Navbar />
+      </div>
+
       <Profilhome />
     </>
   );
@@ -319,7 +322,8 @@ function Biodata() {
             812-3456-7890
           </p>
           <p>
-            <span className="font-semibold">Alamat:</span> Jl. Gub H Bastari E4, Palembang
+            <span className="font-semibold">Alamat:</span> Jl. Gub H Bastari E4,
+            Palembang
           </p>
           <p>
             <span className="font-semibold">Bidang Keahlian:</span> Penalaran
@@ -355,9 +359,7 @@ function MentorDetail() {
               <h3 className="text-lg font-semibold text-gray-700">
                 Pengalaman Mengajar
               </h3>
-              <p className="text-gray-600">
-                Pengajar PU selama 2 Tahun
-              </p>
+              <p className="text-gray-600">Pengajar PU selama 2 Tahun</p>
             </div>
 
             <div>

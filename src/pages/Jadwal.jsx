@@ -6,7 +6,10 @@ import Navbar from "./Navbar";
 function Jadwal() {
   return (
     <>
-      <Navbar />
+      <div className="sticky top-0 z-50 bg-[#1c2953]">
+        <Navbar />
+      </div>
+
       <Pelatihan />
     </>
   );

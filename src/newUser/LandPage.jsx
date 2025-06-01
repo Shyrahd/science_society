@@ -6,7 +6,9 @@ import Footerr from "../pages/Footerr";
 function LandPage() {
   return (
     <>
-      <NewNav />
+      <div className="sticky top-0 z-50 bg-[#1c2953]">
+        <NewNav />
+      </div>
       <UserHero />
       <MentorBenefits />
       <RequirementsSection />

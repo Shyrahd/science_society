@@ -25,7 +25,10 @@ function UserProfile() {
 
   return (
     <div>
-      <NewNav />
+      <div className="sticky top-0 z-50 bg-[#1c2953]">
+        <NewNav />
+      </div>
+
       <div className="min-h-screen bg-gray-50 p-6">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl font-bold text-gray-900 mb-8">
@@ -224,7 +227,6 @@ function AccountDetails({ userInfo, setUserInfo, isEditing }) {
             </p>
           )}
         </div>
-
 
         <div>
           <label className="block text-gray-700 text-sm font-medium mb-2">

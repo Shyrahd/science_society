@@ -17,7 +17,10 @@ function Homepage() {
 
   return (
     <>
-      <Navbar />
+      <div className="sticky top-0 z-50 bg-[#1c2953]">
+        <Navbar />
+      </div>
+
       <Hero scrollToSchedule={scrollToSchedule} />
       <NewsSection />
       <ScheduleSection ref={scheduleRef} />
