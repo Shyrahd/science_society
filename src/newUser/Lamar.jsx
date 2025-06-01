@@ -121,6 +121,40 @@ function FormLamar() {
   };
 
   const nextStep = () => {
+    // Validasi per langkah
+    const requiredForStep = {
+      1: [
+        "namaLengkap",
+        "email",
+        "nomorTelepon",
+        "tanggalLahir",
+        "jenisKelamin",
+        "domisili",
+        "alamat",
+      ],
+      2: ["pendidikanTerakhir", "jurusan", "namaInstitusi", "tahunLulus"],
+      4: ["materiUTBK"],
+      5: ["hariTersedia", "waktuTersedia", "motivasi", "kelebihan"],
+      6: ["cv", "ijazah", "pasFoto"],
+    };
+
+    const fields = requiredForStep[currentStep];
+    if (fields) {
+      for (let field of fields) {
+        const value = formData[field];
+        if (
+          value === null ||
+          value === undefined ||
+          (Array.isArray(value) && value.length === 0) ||
+          (typeof value === "string" && value.trim() === "")
+        ) {
+          alert(`Harap lengkapi kolom: ${field}`);
+          return;
+        }
+      }
+    }
+
+    // Jika lolos validasi, lanjut ke langkah berikutnya
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
     }
@@ -134,7 +168,55 @@ function FormLamar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
+
+    // Validate required fields
+    const requiredFields = [
+      "namaLengkap",
+      "email",
+      "nomorTelepon",
+      "tanggalLahir",
+      "jenisKelamin",
+      "domisili",
+      "alamat",
+      "pendidikanTerakhir",
+      "jurusan",
+      "namaInstitusi",
+      "tahunLulus",
+      "motivasi",
+      "kelebihan",
+      "waktuTersedia",
+    ];
+
+    for (let field of requiredFields) {
+      if (!formData[field] || formData[field].trim() === "") {
+        alert(`Harap lengkapi bagian: ${field}`);
+        return;
+      }
+    }
+
+    // At least one UTBK subject
+    if (formData.materiUTBK.length === 0) {
+      alert("Pilih setidaknya satu materi UTBK yang dikuasai.");
+      return;
+    }
+
+    // At least one available day
+    if (formData.hariTersedia.length === 0) {
+      alert("Pilih setidaknya satu hari yang tersedia.");
+      return;
+    }
+
+    // File uploads
+    if (!formData.cv || !formData.ijazah || !formData.pasFoto) {
+      alert(
+        "Pastikan semua dokumen wajib telah diunggah (CV, Ijazah, Pas Foto)."
+      );
+      return;
+    }
+
+    // Save form data to sessionStorage
+    sessionStorage.setItem("newApplicant", JSON.stringify(formData));
+
     alert(
       "Aplikasi berhasil dikirim! Tim kami akan menghubungi Anda dalam 10-15 hari kerja."
     );
@@ -362,11 +444,11 @@ function StepPendidikan({ formData, handleInputChange }) {
           onChange={handleInputChange}
           options={[
             { value: "", label: "Pilih pendidikan terakhir" },
-            { value: "sma", label: "SMA/SMK" },
-            { value: "d3", label: "Diploma 3 (D3)" },
-            { value: "s1", label: "Sarjana (S1)" },
-            { value: "s2", label: "Magister (S2)" },
-            { value: "s3", label: "Doktor (S3)" },
+            { value: "SMA", label: "SMA/SMK" },
+            { value: "D4", label: "Diploma 3 (D3)" },
+            { value: "S1", label: "Sarjana/Diploma 4 (S1/D4)" },
+            { value: "S2", label: "Magister (S2)" },
+            { value: "S3", label: "Doktor (S3)" },
           ]}
           required
         />

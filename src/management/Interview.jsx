@@ -28,7 +28,7 @@ function InterviewCard() {
     {
       id: 1,
       kandidat: {
-        nama: "Sari Dewi Lestari",
+        nama: "Nanda Pratama",
         posisi: "Tutor SNBT Matematika",
         avatar: "/placeholder.svg?height=40&width=40",
       },

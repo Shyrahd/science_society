@@ -32,7 +32,6 @@ function ListPelamar() {
 
   // Mock data - in a real app, this would come from an API
   useEffect(() => {
-    // Simulate API call
     setTimeout(() => {
       const mockApplicants = [
         {
@@ -67,17 +66,6 @@ function ListPelamar() {
           status: "review",
           subjects: ["TPS", "Penalaran Matematika"],
           experience: "1 tahun",
-        },
-        {
-          id: 4,
-          name: "Musyafa Nabil Ihsan",
-          email: "Musya.Fanabil@gmail.com",
-          phone: "081234567893",
-          education: "D4 Manajemen Informatika Polsri",
-          applyDate: "2025-05-13",
-          status: "accepted",
-          subjects: ["Literasi Bahasa Indonesia", "TWK"],
-          experience: "1 Tahun",
         },
         {
           id: 5,
@@ -136,8 +124,8 @@ function ListPelamar() {
         },
         {
           id: 10,
-          name: "Joko Widodo",
-          email: "joko.widodo@gmail.com",
+          name: "Joko Dodi",
+          email: "joko.Dodi@gmail.com",
           phone: "081234567899",
           education: "S1 Teknik UNS",
           applyDate: "2025-05-21",
@@ -200,7 +188,26 @@ function ListPelamar() {
           subjects: ["TKP", "TPS"],
           experience: "1 tahun",
         },
-      ];
+      ]; // your current dummy list
+
+      // Check if there's new form data in localStorage
+      const newApplicant = JSON.parse(sessionStorage.getItem("newApplicant"));
+
+      if (newApplicant) {
+        const newApplicantFormatted = {
+          id: mockApplicants.length + 1,
+          name: newApplicant.namaLengkap,
+          email: newApplicant.email,
+          phone: newApplicant.nomorTelepon,
+          education: `${newApplicant.pendidikanTerakhir} ${newApplicant.jurusan} ${newApplicant.namaInstitusi}`,
+          applyDate: new Date().toISOString().split("T")[0],
+          status: "accepted",
+          subjects: newApplicant.materiUTBK || [],
+          experience: newApplicant.lamaPengalaman || "N/A",
+        };
+
+        mockApplicants.unshift(newApplicantFormatted);
+      }
 
       setApplicants(mockApplicants);
       setFilteredApplicants(mockApplicants);
