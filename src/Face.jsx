@@ -17,7 +17,7 @@ function UserLog() {
       <div className="text-center py-12">
         <img src="/logo_ss.png" alt="Science Society" className="mx-auto" />
         <h1 className="text-4xl font-bold text-[#1c2953] mb-4">
-          Science Society asdasdasd
+          Science Society
         </h1>
         <p className="text-xl text-gray-600">
           Pilih jenis akses yang sesuai dengan kebutuhan Anda
